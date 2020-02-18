@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- TODO: Change title -->
-    <title>Website Template</title>
+    <title>Data</title>
 
     <!-- Load Bulma from CDN (consider saving it to repository instead) -->
     <!-- https://bulma.io/ -->
@@ -24,9 +24,9 @@
     <div class="hero-body">
       <div class="container">
         <!-- TODO: Change title -->
-        <h1 class="title">Website Title</h1>
+        <h1 class="title">Data Midterm Chinchillas</h1>
         <!-- TODO: Change subtitle -->
-        <h2 class="subtitle">Website Subtitle</h2>
+        <h2 class="subtitle">Fire Department  SF data set</h2>
       </div>
     </div>
   </section>
@@ -39,7 +39,7 @@
       <div class="navbar-brand">
         <!-- TODO: Change link to repository homepage if needed -->
         <!-- TODO: Change which navbar-item is-active if needed -->
-        <a class="navbar-item is-active" href="index.html">
+        <a class="navbar-item " href="index.html">
           <span class="icon"><i class="fas fa-home"></i></span>
           <span>Home</span>
         </a>
@@ -54,7 +54,7 @@
       <div id="main-menu" class="navbar-menu has-text-weight-medium">
         <!-- Left navbar items -->
         <div class="navbar-start">
-          <a class="navbar-item" href="#data" title="Data">
+          <a class="navbar-item is-active" href="data.html" title="Data">
             <span class="icon"><i class="fas fa-table"></i></span>
             <span>Data</span>
           </a>
@@ -68,22 +68,16 @@
             <div class="navbar-dropdown">
               <a class="navbar-item">
                 <span class="icon"><i class="fas fa-chart-line"></i></span>
-                <span>Line Chart</span>
+                <span>Ned's Chart</span>
               </a>
               <a class="navbar-item">
                 <span class="icon"><i class="fas fa-chart-area"></i></span>
-                <span>Area Chart</span>
+                <span>Enrique's Chart</span>
               </a>
-
-              <hr class="navbar-divider">
 
               <a class="navbar-item">
                 <span class="icon"><i class="fas fa-chart-bar"></i></span>
-                <span>Bar Chart</span>
-              </a>
-              <a class="navbar-item">
-                <span class="icon"><i class="fas fa-chart-pie"></i></span>
-                <span>Pie Chart</span>
+                <span>Jaden's Chart</span>
               </a>
             </div>
           </div>
@@ -92,12 +86,12 @@
         <!-- Right navbar items -->
         <div class="navbar-end">
           <!-- TODO: Update as needed -->
-          <a class="navbar-item" href="#about" title="About">
+          <a class="navbar-item" href="" title="About">
             <span class="icon"><i class="fas fa-tasks"></i></span>
             <span>Grade</span>
           </a>
 
-          <a class="navbar-item" href="#about" title="About">
+          <a class="navbar-item" href="about.html" title="About">
             <span class="icon"><i class="fas fa-info-circle"></i></span>
             <span>About</span>
           </a>
@@ -111,225 +105,308 @@
     <div class="container">
       <!-- Begin page content -->
       <div class="content">
-        <h1 class="title">
-          <!-- TODO: Change page title -->
-          Page Title
-        </h1>
-        <p class="subtitle">
-          <!-- TODO: Change page subtitle -->
-          Page Subtitle
-        </p>
-
-        <p>This would be an excellent place to describe what this page is for, what to find in different sections, describe any motivation or theme behind your visualizations, and so on.</p>
-
-        <p>You should not use this template unless you intend to customize it. Make it your own. Keep in mind this simple template is over 300 lines! You can see other examples of websites using Bulma at their showcase: <a href="https://bulma.io/expo/">bulma.io/expo/</a>.</p>
 
         <h2 id="data">Data</h2>
 
-        <p>Include some detailed information about the dataset here. You should <a href="#">add a link</a> to the original dataset. You might also want to quote the license:</p>
+        <p>Our data set is taken from Data SF, it is the fire department Calls for Service data set. It has 34 columns and 5.4M rows. You can find the full data set at <a href="https://data.sfgov.org/Public-Safety/Fire-Department-Calls-for-Service/nuek-vuh3">Data sf</a>. it's under the following license:</p>
 
         <blockquote>
           <p>
             "This data is made available under the Public Domain Dedication and License v1.0 whose full text can be found at: <a href="http://www.opendatacommons.org/licenses/pddl/1.0/">www.opendatacommons.org/licenses/pddl/1.0/</a>"
           </p>
-          <cite>Put a citation here, possibly link to the dataset license information directly.</cite>
+
         </blockquote>
+        <p>Fire Calls-For-Service includes all fire units responses to calls. Each record includes the call number, incident number, address, unit identifier, call type, and disposition. All relevant time intervals are also included. Because this dataset is based on responses, and since most calls involved multiple units, there are multiple records for each call number. Addresses are associated with a block number, intersection or call box, not a specific address.</p>
+        <p>The data set column descriptions are as follow: </p>
 
-        <p>In addition to including a link to the source and license, you should describe the data. You might want a list of some sort to enumerate the different types of columns:</p>
+          <div style="height:400px;overflow:auto;">
+          <div id="Fire-dictionary_19608" align=center x:publishsource="Excel"><span
+          style='font-variant-ligatures: normal;font-variant-caps: normal;orphans: 2;
+          text-align:start;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-style: initial;
+          text-decoration-color: initial'>
 
-        <ol>
-          <li><strong>Column Name:</strong> Give a description of the column, including its type and possible range of values.</li>
+          <table border=0 cellpadding=0 cellspacing=0 width=727 style='border-collapse:
+           collapse;table-layout:fixed;width:545pt'>
+           <col width=221 style='mso-width-source:userset;mso-width-alt:7850;width:166pt'>
+           <col width=142 style='mso-width-source:userset;mso-width-alt:5034;width:106pt'>
+           <col width=364 style='mso-width-source:userset;mso-width-alt:12942;width:273pt'>
+           <tr height=19 style='height:14.4pt'>
+            <td height=19 class=xl6519608 width=221 style='height:14.4pt;width:166pt'>Field
+            Name</span></td>
+            <td class=xl6519608 width=142 style='border-left:none;width:106pt'>Data Type</td>
+            <td class=xl6519608 width=364 style='border-left:none;width:273pt'>Definition</td>
+           </tr>
+           <tr height=58 style='height:43.2pt'>
+            <td height=58 class=xl6619608 style='height:43.2pt;border-top:none'>Call
+            Number</td>
+            <td class=xl6719608 style='border-top:none;border-left:none'>Text</td>
+            <td class=xl6819608 width=364 style='border-top:none;border-left:none;
+            width:273pt'>A unique 9-digit number assigned by the 911 Dispatch Center
+            (DEM) to this call. These number are used for both Police and Fire calls.</td>
+           </tr>
+           <tr height=38 style='height:28.8pt'>
+            <td height=38 class=xl6619608 style='height:28.8pt;border-top:none'>Unit ID</td>
+            <td class=xl6719608 style='border-top:none;border-left:none'>Text</td>
+            <td class=xl6819608 width=364 style='border-top:none;border-left:none;
+            width:273pt'>Unit Identifier. For example E01 for Engine 1 or T01 for Truck
+            1.</td>
+           </tr>
+           <tr height=38 style='height:28.8pt'>
+            <td height=38 class=xl6619608 style='height:28.8pt;border-top:none'>Incident
+            Number</td>
+            <td class=xl6719608 style='border-top:none;border-left:none'>Text</td>
+            <td class=xl6819608 width=364 style='border-top:none;border-left:none;
+            width:273pt'>A unique 8-digit number assigned by DEM to this Fire incident.</td>
+           </tr>
+           <tr height=38 style='height:28.8pt'>
+            <td height=38 class=xl6619608 style='height:28.8pt;border-top:none'>Call Date</td>
+            <td class=xl6719608 style='border-top:none;border-left:none'>Date &amp; Time</td>
+            <td class=xl6819608 width=364 style='border-top:none;border-left:none;
+            width:273pt'>Date the call is received at the 911 Dispatch Center. Used for
+            reporting purposes.</td>
+           </tr>
+           <tr height=19 style='height:14.4pt'>
+            <td height=19 class=xl6619608 style='height:14.4pt;border-top:none'>Call Type</td>
+            <td class=xl6719608 style='border-top:none;border-left:none'>Text</td>
+            <td class=xl6819608 width=364 style='border-top:none;border-left:none;
+            width:273pt'>Type of call the incident falls into. See the list below.</td>
+           </tr>
+           <tr height=38 style='height:28.8pt'>
+            <td height=38 class=xl6619608 style='height:28.8pt;border-top:none'>Watch
+            Date</td>
+            <td class=xl6619608 style='border-top:none;border-left:none'>Date &amp; Time</td>
+            <td class=xl6819608 width=364 style='border-top:none;border-left:none;
+            width:273pt'>Watch date when the call is received. Watch date starts at 0800
+            each morning and ends at 0800 the next day.</td>
+           </tr>
+           <tr height=19 style='height:14.4pt'>
+            <td height=19 class=xl6619608 style='height:14.4pt;border-top:none'>Received
+            DtTm</td>
+            <td class=xl6619608 style='border-top:none;border-left:none'>Date &amp; Time</td>
+            <td class=xl6819608 width=364 style='border-top:none;border-left:none;
+            width:273pt'>Date and time of call is received at the 911 Dispatch Center.</td>
+           </tr>
+           <tr height=38 style='height:28.8pt'>
+            <td height=38 class=xl6619608 style='height:28.8pt;border-top:none'>Entry
+            DtTm</td>
+            <td class=xl6619608 style='border-top:none;border-left:none'>Date &amp; Time</td>
+            <td class=xl6819608 width=364 style='border-top:none;border-left:none;
+            width:273pt'>Date and time the 911 operator submits the entry of the initical
+            call information into the CAD system</td>
+           </tr>
+           <tr height=38 style='height:28.8pt'>
+            <td height=38 class=xl6619608 style='height:28.8pt;border-top:none'>Dispatch
+            DtTm</td>
+            <td class=xl6619608 style='border-top:none;border-left:none'>Date &amp; Time</td>
+            <td class=xl6819608 width=364 style='border-top:none;border-left:none;
+            width:273pt'>Date and time the 911 operator dispatches this unit to the call.</td>
+           </tr>
+           <tr height=38 style='height:28.8pt'>
+            <td height=38 class=xl6619608 style='height:28.8pt;border-top:none'>Response
+            DtTm</td>
+            <td class=xl6619608 style='border-top:none;border-left:none'>Date &amp; Time</td>
+            <td class=xl6819608 width=364 style='border-top:none;border-left:none;
+            width:273pt'>Date and time this unit acknowledges the dispatch and records
+            that the unit is en route to the location of the call.</td>
+           </tr>
+           <tr height=38 style='height:28.8pt'>
+            <td height=38 class=xl6619608 style='height:28.8pt;border-top:none'>On Scene
+            DtTm</td>
+            <td class=xl6619608 style='border-top:none;border-left:none'>Date &amp; Time</td>
+            <td class=xl6819608 width=364 style='border-top:none;border-left:none;
+            width:273pt'>Date and time the unit records arriving to the location of the
+            incident</td>
+           </tr>
+           <tr height=38 style='height:28.8pt'>
+            <td height=38 class=xl6619608 style='height:28.8pt;border-top:none'>AVL
+            Validated On Scene DtTm</td>
+            <td class=xl6619608 style='border-top:none;border-left:none'>Date &amp; Time</td>
+            <td class=xl6819608 width=364 style='border-top:none;border-left:none;
+            width:273pt'>Updated date and time the unit arrived on scene based on
+            existing unit AVL coordinates.</td>
+           </tr>
+           <tr height=38 style='height:28.8pt'>
+            <td height=38 class=xl6619608 style='height:28.8pt;border-top:none'>Transport
+            DtTm</td>
+            <td class=xl6619608 style='border-top:none;border-left:none'>Date &amp; Time</td>
+            <td class=xl6819608 width=364 style='border-top:none;border-left:none;
+            width:273pt'>If this unit is an ambulance, date and time the unit begins the
+            transport unit arrives to hospital</td>
+           </tr>
+           <tr height=38 style='height:28.8pt'>
+            <td height=38 class=xl6619608 style='height:28.8pt;border-top:none'>Hospital
+            DtTm</td>
+            <td class=xl6619608 style='border-top:none;border-left:none'>Date &amp; Time</td>
+            <td class=xl6819608 width=364 style='border-top:none;border-left:none;
+            width:273pt'>If this unit is an ambulance, date and time the unit arrives to
+            the hospital.</td>
+           </tr>
+           <tr height=38 style='height:28.8pt'>
+            <td height=38 class=xl6619608 style='height:28.8pt;border-top:none'>Call
+            Final Disposition</td>
+            <td class=xl6619608 style='border-top:none;border-left:none'>Text</td>
+            <td class=xl6819608 width=364 style='border-top:none;border-left:none;
+            width:273pt'>Disposition of the call (Code). For example TH2: Transport to
+            Hospital - Code 2, FIR: Resolved by Fire Department</td>
+           </tr>
+           <tr height=38 style='height:28.8pt'>
+            <td height=38 class=xl6619608 style='height:28.8pt;border-top:none'>Available
+            DtTm</td>
+            <td class=xl6619608 style='border-top:none;border-left:none'>Date &amp; Time</td>
+            <td class=xl6819608 width=364 style='border-top:none;border-left:none;
+            width:273pt'>Date and time this unit is not longer assigned to this call and
+            it is available for another dispatch.</td>
+           </tr>
+           <tr height=38 style='height:28.8pt'>
+            <td height=38 class=xl6619608 style='height:28.8pt;border-top:none'>Address</td>
+            <td class=xl6619608 style='border-top:none;border-left:none'>Text</td>
+            <td class=xl6919608 width=364 style='border-top:none;border-left:none;
+            width:273pt'>Address of midblock point associated with incident (obfuscated
+            address to protect caller privacy)</td>
+           </tr>
+           <tr height=19 style='height:14.4pt'>
+            <td height=19 class=xl6619608 style='height:14.4pt;border-top:none'>City</td>
+            <td class=xl6619608 style='border-top:none;border-left:none'>Text</td>
+            <td class=xl6919608 width=364 style='border-top:none;border-left:none;
+            width:273pt'>City of incident</td>
+           </tr>
+           <tr height=19 style='height:14.4pt'>
+            <td height=19 class=xl6619608 style='height:14.4pt;border-top:none'>Zipcode
+            of Incident</td>
+            <td class=xl6619608 style='border-top:none;border-left:none'>Text</td>
+            <td class=xl6919608 width=364 style='border-top:none;border-left:none;
+            width:273pt'>Zipcode of incident</td>
+           </tr>
+           <tr height=38 style='height:28.8pt'>
+            <td height=38 class=xl6619608 style='height:28.8pt;border-top:none'>Battalion</td>
+            <td class=xl6619608 style='border-top:none;border-left:none'>Text</td>
+            <td class=xl6919608 width=364 style='border-top:none;border-left:none;
+            width:273pt'>Emergency Response District (There are 9 Fire Emergency Response
+            Districts)</td>
+           </tr>
+           <tr height=38 style='height:28.8pt'>
+            <td height=38 class=xl6619608 style='height:28.8pt;border-top:none'>Station
+            Area</td>
+            <td class=xl6619608 style='border-top:none;border-left:none'>Text</td>
+            <td class=xl6919608 width=364 style='border-top:none;border-left:none;
+            width:273pt'>Fire Station First Response Area associated with the address of
+            the incident</td>
+           </tr>
+           <tr height=77 style='height:57.6pt'>
+            <td height=77 class=xl6619608 style='height:57.6pt;border-top:none'>Box</td>
+            <td class=xl6619608 style='border-top:none;border-left:none'>Text</td>
+            <td class=xl6919608 width=364 style='border-top:none;border-left:none;
+            width:273pt'>Fire box associated with the address of the incident. A box is
+            the smallest area used to divide the City. Each box is associated with a
+            unique unit dispatch order. The City is divided into more than 2,400 boxes.</td>
+           </tr>
+           <tr height=38 style='height:28.8pt'>
+            <td height=38 class=xl6619608 style='height:28.8pt;border-top:none'>Original
+            Priority</td>
+            <td class=xl6619608 style='border-top:none;border-left:none'>Text</td>
+            <td class=xl6919608 width=364 style='border-top:none;border-left:none;
+            width:273pt'>Initial call priority (Code 2: Non-Emergency or Code
+            3:Emergency).</td>
+           </tr>
+           <tr height=38 style='height:28.8pt'>
+            <td height=38 class=xl6619608 style='height:28.8pt;border-top:none'>Priority</td>
+            <td class=xl6619608 style='border-top:none;border-left:none'>Text</td>
+            <td class=xl6919608 width=364 style='border-top:none;border-left:none;
+            width:273pt'>Call priority (Code 2: Non-Emergency or Code 3:Emergency).</td>
+           </tr>
+           <tr height=38 style='height:28.8pt'>
+            <td height=38 class=xl6619608 style='height:28.8pt;border-top:none'>Final
+            Priority</td>
+            <td class=xl6619608 style='border-top:none;border-left:none'>Text</td>
+            <td class=xl6919608 width=364 style='border-top:none;border-left:none;
+            width:273pt'>Final call priority (Code 2: Non-Emergency or Code 3:Emergency).</td>
+           </tr>
+           <tr height=38 style='height:28.8pt'>
+            <td height=38 class=xl6619608 style='height:28.8pt;border-top:none'>ALS Unit</td>
+            <td class=xl6619608 style='border-top:none;border-left:none'>Boolean
+            (True/False)</td>
+            <td class=xl6919608 width=364 style='border-top:none;border-left:none;
+            width:273pt'>Does this unit includes ALS (Advance Life Support) resources? Is
+            there a paramedic in this unit?</td>
+           </tr>
+           <tr height=38 style='height:28.8pt'>
+            <td height=38 class=xl6619608 style='height:28.8pt;border-top:none'>Call Type
+            Group</td>
+            <td class=xl6619608 style='border-top:none;border-left:none'>Text</td>
+            <td class=xl6919608 width=364 style='border-top:none;border-left:none;
+            width:273pt'>Call types are divided into four main groups: Fire, Alarm,
+            Potential Life Threatening and Non Life Threatening.</td>
+           </tr>
+           <tr height=38 style='height:28.8pt'>
+            <td height=38 class=xl6619608 style='height:28.8pt;border-top:none'>Number of
+            Alarms</td>
+            <td class=xl6619608 style='border-top:none;border-left:none'>Numeric</td>
+            <td class=xl6919608 width=364 style='border-top:none;border-left:none;
+            width:273pt'>Number of alarms associated with the incident. This is a number
+            between 1 and 5.</td>
+           </tr>
+           <tr height=19 style='height:14.4pt'>
+            <td height=19 class=xl6619608 style='height:14.4pt;border-top:none'>Unit Type</td>
+            <td class=xl6619608 style='border-top:none;border-left:none'>Text</td>
+            <td class=xl6919608 width=364 style='border-top:none;border-left:none;
+            width:273pt'>Unit type</td>
+           </tr>
+           <tr height=38 style='height:28.8pt'>
+            <td height=38 class=xl6619608 style='height:28.8pt;border-top:none'>Unit
+            sequence in call dispatch</td>
+            <td class=xl6619608 style='border-top:none;border-left:none'>Numeric</td>
+            <td class=xl6919608 width=364 style='border-top:none;border-left:none;
+            width:273pt'>A number that indicates the order this unit was assigned to this
+            call</td>
+           </tr>
+           <tr height=38 style='height:28.8pt'>
+            <td height=38 class=xl6619608 style='height:28.8pt;border-top:none'>Location</td>
+            <td class=xl6619608 style='border-top:none;border-left:none'>Coordinates</td>
+            <td class=xl6919608 width=364 style='border-top:none;border-left:none;
+            width:273pt'>Latitude and longitude of address obfuscated either to the
+            midblock, intersection or call box</td>
+           </tr>
+           <tr height=38 style='height:28.8pt'>
+            <td height=38 class=xl6619608 style='height:28.8pt;border-top:none'>Fire
+            Prevention District</td>
+            <td class=xl6619608 style='border-top:none;border-left:none'>Text</td>
+            <td class=xl6919608 width=364 style='border-top:none;border-left:none;
+            width:273pt'>Bureau of Fire Prevention District associated with this address</td>
+           </tr>
+           <tr height=19 style='height:14.4pt'>
+            <td height=19 class=xl6619608 style='height:14.4pt;border-top:none'>Supervisor
+            District</td>
+            <td class=xl6619608 style='border-top:none;border-left:none'>Text</td>
+            <td class=xl6919608 width=364 style='border-top:none;border-left:none;
+            width:273pt'>Supervisor District associated with this address</td>
+           </tr>
+           <tr height=58 style='height:43.2pt'>
+            <td height=58 class=xl6619608 style='height:43.2pt;border-top:none'>Neighborhood
+            District</td>
+            <td class=xl6619608 style='border-top:none;border-left:none'>Text</td>
+            <td class=xl6919608 width=364 style='border-top:none;border-left:none;
+            width:273pt'>Neighborhood District associated with this address, boundaries
+            available here: https://data.sfgov.org/d/p5b7-5n3h</td>
+           </tr>
+           <tr height=58 style='height:43.2pt'>
+            <td height=58 class=xl6619608 style='height:43.2pt;border-top:none'>RowID</td>
+            <td class=xl6619608 style='border-top:none;border-left:none'>Text</td>
+            <td class=xl6919608 width=364 style='border-top:none;border-left:none;
+            width:273pt'>Unique identifier used for managing data updates. It is the
+            concatenation of Call Number and Unit ID separated by a dash</td>
+           </tr>
+           <![if supportMisalignedColumns]>
+           <tr height=0 style='display:none'>
+            <td width=221 style='width:166pt'></td>
+            <td width=142 style='width:106pt'></td>
+            <td width=364 style='width:273pt'></td>
+           </tr>
+           <![endif]>
+          </table>
 
-          <li><strong>Column Name:</strong> Give a description of the column, including its type and possible range of values.</li>
-
-          <li><strong>Column Name:</strong> Give a description of the column, including its type and possible range of values.</li>
-
-          <li><strong>Column Name:</strong> Give a description of the column, including its type and possible range of values.</li>
-        </ol>
-
-        <p>This will of course differ depending on the assignment and data.</p>
-
-        <h3 id="wrangling">Wrangling</h3>
-
-        <p>Perhaps you had to do some data wrangling to the original dataset to prepare it for visualization. This would be a great place to discuss some of that wrangling.
-
-        <pre>
-You can even put code into these pre blocks.
-  It will preserve whitespace.
-    That is helpful for formatted code.
-        </pre>
-
-        <p>You can alternatively embed a Gist if you want. There is an "embed" button on <a href="https://gist.github.com/octocat/6cad326836d38bd3a7ae">the Gist page</a> and results in something like this:</p>
-
-        <script src="https://gist.github.com/octocat/6cad326836d38bd3a7ae.js"></script>
-
-        <h2 id="visualizations">Visualizations</h2>
-
-        <p>Ideally not everything would be on a single page like this example. Instead, you might want to put each section in its own webpage. You would need to carefully replicate the page template (with the header, navbar, and footer) and make the necessary updates. For example, you want the "About" navbar item to be considered active on an "About" web page.</p>
-
-        <p>For now this is just a demo. The buttons below do not go anywhere, but can be easily changed to link to different visualization pages.</p>
-
-        <p class="buttons">
-          <a class="button is-large is-success" href="#">
-            <span class="icon is-medium">
-              <i class="fas fa-chart-line"></i>
-            </span>
-            <span>Line Chart</span>
-          </a>
-
-          <a class="button is-large is-primary" href="#">
-            <span class="icon is-medium">
-              <i class="fas fa-chart-area"></i>
-            </span>
-            <span>Area Chart</span>
-          </a>
-
-          <a class="button is-large is-info" href="#">
-            <span class="icon is-medium">
-              <i class="fas fa-chart-bar"></i>
-            </span>
-            <span>Bar Chart</span>
-          </a>
-
-          <a class="button is-large is-link" href="#">
-            <span class="icon is-medium">
-              <i class="fas fa-chart-pie"></i>
-            </span>
-            <span>Pie Chart</span>
-          </a>
-        </p>
-
-        <!-- https://github.com/vega/vega-embed#basic-example -->
-        <p>It is possible to embed some visualizations directly here too. Here is <a href="https://github.com/vega/vega-embed#basic-example">an example</a> using Vega-Lite:</p>
-
-        <script src="https://cdn.jsdelivr.net/npm/vega@5.9.0"></script>
-        <script src="https://cdn.jsdelivr.net/npm/vega-lite@4.0.2"></script>
-        <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.2.1"></script>
-
-        <div id="vis"></div>
-
-        <script type="text/javascript">
-        var spec = "https://raw.githubusercontent.com/vega/vega/master/docs/examples/bar-chart.vg.json";
-        vegaEmbed('#vis', spec).then(function(result) {
-          // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-        }).catch(console.error);
-        </script>
-
-        <h4>Instructions</h4>
-
-        <p>You will likely need to include instructions on how to interpet and use the visualization. In the case above, if you click the three dots <i class="fas fa-ellipsis-h has-text-grey-light	"></i> above it will open a menu where you can either save the visualization to a SVG or PNG, or alternatively open it up in the online Vega Editor.</p>
-
-        <h4>Discussion</h4>
-
-        <p>You may also need other sections, like a discussion section, per-visualization section on data wrangling, and others. Because of the extra content and code visualizations take, it might be worthwhile to break up your pages into one home page and then one page per visualization.</p>
-
-        <span class="heading">Acknowledgements</span>
-
-        <p>
-          <a href="#">Link to insiration</a><br/>
-          <a href="#">Link to StackOverflow snippet</a>
-        </p>
-
-        <p class="is-6">
-          <em>Thanks to Person Name for their suggestion to do something with the visualization.</em>
-        </p>
-
-        <h2 id="grade">Grade</h2>
-
-        <!-- TODO: Remove custom style if no longer needed -->
-        <style>
-          table.grades tbody tr td:nth-child(1),
-          table.grades tbody tr td:nth-child(2) {
-            text-align: center;
-          }
-        </style>
-
-        <!-- TODO: Change or remove table -->
-        <!-- https://bulma.io/documentation/elements/table/ -->
-        <table class="table is-hoverable is-bordered grades">
-          <thead>
-            <tr>
-              <th>Letter</th>
-              <th>Done?</th>
-              <th>Description</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            <tr>
-              <td>D</td>
-              <td><i class="has-text-success fas fa-check-circle"></i></td>
-              <td>Discussion of how this grade level was satisfied. Exactly how this section should look will depend on the assignment in question. There is no requirement for formatting in this way. This is just an example of what a table element might look like for this informaiton.</td>
-            </tr>
-
-            <tr>
-              <td>C</td>
-              <td><i class="has-text-success fas fa-check-circle"></i></td>
-              <td>Discussion of how this grade level was satisfied.</td>
-            </tr>
-
-            <tr>
-              <td>B</td>
-              <td><i class="has-text-warning far fa-check-circle"></i></td>
-              <td>Discussion of how this grade level was satisfied.</td>
-            </tr>
-
-            <tr>
-              <td>A</td>
-              <td><i class="has-text-danger fas fa-times-circle"></i></td>
-              <td>Discussion of how this grade level was not satisfied.</td>
-            </tr>
-          </tbody>
-
-        </table>
-
-        <h2 id="about">About</h2>
-
-        <!-- Profile box -->
-        <!-- https://bulma.io/documentation/layout/media-object/ -->
-        <article class="media">
-          <!-- TODO: Replace with profile photo -->
-          <figure class="media-left">
-            <p class="image is-128x128"><img class="is-rounded" src="profile.png"></p>
-          </figure>
-
-          <div class="media-content">
-            <div class="content">
-              <!-- TODO: Replace with contact information -->
-              <p>
-                <strong>Full Name</strong><br/>
-                CS Major, <a href="https://www.usfca.edu/">University of San Francisco</a><br/>
-                <em>Expected Graduation: 20??</em><br/>
-                <i class="fas fa-envelope"></i> <a href="mailto:username@dons.usfca.edu">username@dons.usfca.edu</a>
-              </p>
-
-              <!-- TODO: Replace with brief biography -->
-              <p>
-                Here is a brief bio about yourself. A good rule of thumb is to include at least one technical tidbit (favorite area or course within computer science), and one fun tidbit (such as loving dogs).
-              </p>
-
-              <!-- TODO: Replace or remove tags -->
-              <!-- https://bulma.io/documentation/elements/tag/ -->
-              <div class="heading">Skills</div>
-
-              <div class="tags">
-                <span class="tag">Python</span>
-                <span class="tag">C</span>
-                <span class="tag">Java</span>
-                <span class="tag">JavaScript</span>
-                <span class="tag">HTML</span>
-                <span class="tag">CSS</span>
-                <span class="tag">SVG</span>
-              </div>
-            </div>
           </div>
-        </article>
-        <!-- End profile box -->
+        </div>
 
-      </div>
-      <!-- End page content -->
-    </div>
-  </section>
 
   <!-- Page footer -->
   <!-- https://bulma.io/documentation/layout/footer/ -->
