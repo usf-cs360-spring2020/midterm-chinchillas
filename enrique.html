@@ -10,6 +10,7 @@
     <!-- Load Bulma from CDN (consider saving it to repository instead) -->
     <!-- https://bulma.io/ -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+    <!-- <link rel="stylesheet" href="https://unpkg.com/bulmaswatch/cyborg/bulmaswatch.min.css"> -->
 
     <!-- Load Font Awesome 5 (free) icons -->
     <script defer src="https://use.fontawesome.com/releases/v5.10.2/js/all.js"></script>
@@ -111,6 +112,29 @@
           Midterm Chinchilla
         </h1>
 <h2>Enrique</h2>
+
+<h2>Data wrangling</h2>
+<p>For data wrangling in this prototype we selected a five year range to see if we could find a change in the SFFD  over time. This was done on the<a href="https://data.sfgov.org/Public-Safety/Fire-Department-Calls-for-Service/nuek-vuh3"> Data SF</a> website with their data filter tool.</p>
+<p>For this particular prototype I made an average response time using the <bold>DATEDIFF('minute',[INTIME], [OUTTIME])</bold> tool in tableau, having the [INTIME] be the dispatch time and date, and the [OUTTIME] be the onscene arrival of the response unit.
+  This was reduced to be measured in minutes.</br>
+  I also reduced the call type to be just <bold>medical incident</bold>, which is the majority of SFFD call types, and reduced the call type group to be just <bold>life threatening</bold> and<bold> nonlife threatening</bold>. Thee were also done in tableau.
+
+<h2>Prototype</h2>
+<img src="img/Dashboard 1.png" width="960px" height="500px"> </img>
+<img src="img/stackbarproto.png" width="960px" height="500px"> </img>
+
+<h2>Planned Interactivity</h2>
+
+<h3>Side by Side Bar Chart</h3>
+<p> For interactivity for this bar graph I intend to use a tooltip to have the relevant information show up when hovering over the bar, and highlight the bar in either the <bold>life threatening</bold> or <bold>nonlife threatening</bold> category, and compare it to it's yearly counterpart, while fading the other bars to grey.</p>
+
+<h3>Stacked Bar Chart</h3>
+<p>For the stacked bar chart I would simply highlight the bar it was on and put a tooltip on it so as to wasily see the average response time, since it's harder to differentiate on a stacked bar chart. </p>
+
+<h2>Interpretation</h2>
+<p>Looking at the chart there is clearly a lag in response time when the medical incident call is non-life threatening, understandably so since there is no extreme urgency to get to the call. There is a significant increase in response time when there is a life threatening medical incident.
+In general over the years the non life threatening response time does not vary too much, however for life threatening calls, there is a nearly one minute average decrease (faster response time) for the year 2019. </br>
+There is unavailable data as to why this is, it would be interesting to further look into other data and see what may be happening. Decrease in resposne time between life threatening and non-life threatening calls is possibly due to sirens being on or not. While the faser response time for the year 2019 could be many factors.</p>
 
   </section>
 
