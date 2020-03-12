@@ -11,7 +11,7 @@ let config = {
 config.svg.height = 500;
 config.svg.width = config.svg.height * 1.618; // golden ratio
 
-config.margin.top = 60;
+config.margin.top = 100;
 config.margin.right = 20;
 config.margin.bottom = 20;
 config.margin.left = 150;
@@ -25,6 +25,7 @@ config.plot.height = config.svg.height - config.margin.top - config.margin.botto
 let svg = d3.select('body').select('svg');
 svg.attr('width', config.svg.width);
 svg.attr('height', config.svg.height);
+svg.style("background-color", "fce4ff")
 
 // setup plot area
 let plot = svg.append('g');
@@ -50,7 +51,7 @@ scale.y = d3.scaleBand();
 scale.y.range([config.plot.height, 0]);
 
 // https://github.com/d3/d3-scale-chromatic
-scale.color = d3.scaleSequential(d3.interpolateYlGnBu);
+color = d3.scaleSequential(d3.interpolateYlGnBu);
 
 let axis = {};  // axes for data
 axis.x = d3.axisTop(scale.x);
@@ -186,6 +187,7 @@ function drawHeatmap(data) {
 
  // get only the value part of the objects
  let mapped = merged.map(d => d.value);
+ console.log(mapped);
 
  // console.log(mapped);
   // calculate the min, max, and median
@@ -193,7 +195,12 @@ function drawHeatmap(data) {
   let max = d3.max(mapped);
   let mid = d3.mean(mapped);
 
-  scale.color.domain([min, mid, max]);
+  console.log(mid);
+  console.log(max);
+  console.log(min);
+
+
+  color.domain([min, max]);
 
   // create one group per row
   let rows = plot.selectAll("g.cell")
@@ -221,18 +228,44 @@ function drawHeatmap(data) {
   cells.attr("height", scale.y.bandwidth());
 
   // here is the color magic!
-  cells.style("fill", d => scale.color(d.value));
-  cells.style("stroke", d => scale.color(d.value));
+  cells.style("fill", d => color(d.value));
+  cells.style("stroke", d => color(d.value));
 
   svg
   .append("text")
   .attr("id", "charttitle")
    .attr("x",  35)
-   .attr("y", 35)
+   .attr("y", 50)
    .style("text-anchor", "left")
    .style("font-weight", 600)
-   .style("font-size", "20px")
+   .style("font-size", "22px")
    .text("Average Respone Time Per Neighborhoood Per Year");
+
+  svg.append("g")
+  .attr("class", "legendLinear")
+  .attr("transform", "translate(600,40)")
+
+var legendLinear = d3.legendColor()
+  .shapeWidth(30)
+  .cells(5)
+  .shapePadding(0)
+  .orient('horizontal')
+  .scale(color)
+
+  // .title("Avg. Minutes");
+
+svg.select(".legendLinear")
+  .call(legendLinear);
+
+
+
+  svg.append("text").attr("id","legendtitle")
+   .attr("x", 640)
+   .attr("y",30)
+   .style("text-anchor", "middle")
+   .style("font-weight", 600)
+   .style("font-size", "14px")
+   .text("Avg. Minutes");
 }
 
 // convert region to more condensed form
