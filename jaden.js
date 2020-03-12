@@ -29,8 +29,7 @@ svg.attr('height', config.svg.height);
 // setup plot area
 let plot = svg.append('g');
 plot.attr('id', 'plot');
-plot.attr('transform', translate(config.plot.x, config.plot.y));
-plot.style("background-color", "fce4ff");
+plot.attr('transform', translate(config.plot.x, config.plot.y))
 
 
 // use a rect to illustrate plot area
@@ -62,8 +61,8 @@ axis.y = d3.axisLeft(scale.y);
 axis.y.tickPadding(0);
 
 // format the tick labels
-// axis.x.tickFormat();
-// axis.y.tickFormat(regionFormatter);
+axis.x.tickFormat();
+axis.y.tickFormat(regionFormatter);
 
 // load data
 // https://github.com/d3/d3-fetch/blob/master/README.md#csv
