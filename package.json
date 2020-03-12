@@ -1,0 +1,22 @@
+{
+  "name": "midterm-chinchillas",
+  "version": "1.0.0",
+  "description": "<https://usf-cs360-spring2020.github.io/template-bulma/>",
+  "main": "jaden.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/usf-cs360-spring2020/midterm-chinchillas.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/usf-cs360-spring2020/midterm-chinchillas/issues"
+  },
+  "homepage": "https://github.com/usf-cs360-spring2020/midterm-chinchillas#readme",
+  "dependencies": {
+    "d3-svg-legend": "^2.25.6"
+  }
+}
