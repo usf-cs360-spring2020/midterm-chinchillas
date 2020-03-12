@@ -50,7 +50,7 @@ scale.y = d3.scaleBand();
 scale.y.range([config.plot.height, 0]);
 
 // https://github.com/d3/d3-scale-chromatic
-scale.color = d3.scaleSequential(d3.interpolatePuBu);
+scale.color = d3.scaleSequential(d3.interpolateYlGnBu);
 
 let axis = {};  // axes for data
 axis.x = d3.axisTop(scale.x);
@@ -223,6 +223,16 @@ function drawHeatmap(data) {
   // here is the color magic!
   cells.style("fill", d => scale.color(d.value));
   cells.style("stroke", d => scale.color(d.value));
+
+  svg
+  .append("text")
+  .attr("id", "charttitle")
+   .attr("x",  35)
+   .attr("y", 35)
+   .style("text-anchor", "left")
+   .style("font-weight", 600)
+   .style("font-size", "20px")
+   .text("Average Respone Time Per Neighborhoood Per Year");
 }
 
 // convert region to more condensed form
