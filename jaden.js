@@ -25,12 +25,13 @@ config.plot.height = config.svg.height - config.margin.top - config.margin.botto
 let svg = d3.select('body').select('svg');
 svg.attr('width', config.svg.width);
 svg.attr('height', config.svg.height);
-svg.style("background-color", "fce4ff")
 
 // setup plot area
 let plot = svg.append('g');
 plot.attr('id', 'plot');
 plot.attr('transform', translate(config.plot.x, config.plot.y));
+plot.style("background-color", "fce4ff");
+
 
 // use a rect to illustrate plot area
 let rect = plot.append('rect');
@@ -61,7 +62,7 @@ axis.y = d3.axisLeft(scale.y);
 axis.y.tickPadding(0);
 
 // format the tick labels
-axis.x.tickFormat();
+// axis.x.tickFormat();
 // axis.y.tickFormat(regionFormatter);
 
 // load data
@@ -246,8 +247,8 @@ function drawHeatmap(data) {
   .attr("transform", "translate(600,40)")
 
 var legendLinear = d3.legendColor()
-  .shapeWidth(30)
-  .cells(5)
+  .shapeWidth(3)
+  .cells(50)
   .shapePadding(0)
   .orient('horizontal')
   .scale(color)
@@ -266,6 +267,20 @@ svg.select(".legendLinear")
    .style("font-weight", 600)
    .style("font-size", "14px")
    .text("Avg. Minutes");
+   svg.append("text").attr("id","legendMinScale")
+    .attr("x", 570)
+    .attr("y",70)
+    .style("text-anchor", "left")
+    .style("font-weight", 500)
+    .style("font-size", "12px")
+    .text(min);
+    svg.append("text").attr("id","legendMaxScale")
+     .attr("x", 740)
+     .attr("y",70)
+     .style("text-anchor", "left")
+     .style("font-weight", 500)
+     .style("font-size", "12px")
+     .text(max);
 }
 
 // convert region to more condensed form
