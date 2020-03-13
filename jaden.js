@@ -1,5 +1,5 @@
 // location of data file
-let csv = 'img/pt1.csv';
+let csv = 'img/jaden1.csv';
 
 // configuration of svg/plot area
 let config = {
@@ -11,9 +11,9 @@ let config = {
 config.svg.height = 500;
 config.svg.width = config.svg.height * 1.618; // golden ratio
 
-config.margin.top = 100;
+config.margin.top = 70;
 config.margin.right = 20;
-config.margin.bottom = 20;
+config.margin.bottom = 10;
 config.margin.left = 150;
 
 config.plot.x = config.margin.left;
@@ -25,6 +25,7 @@ config.plot.height = config.svg.height - config.margin.top - config.margin.botto
 let svg = d3.select('body').select('svg');
 svg.attr('width', config.svg.width);
 svg.attr('height', config.svg.height);
+// svg.style("background-color", "pink")
 
 // setup plot area
 let plot = svg.append('g');
@@ -47,11 +48,13 @@ let scale = {};
 scale.x = d3.scaleBand();
 scale.x.range([0, config.plot.width]);
 
+
+
 scale.y = d3.scaleBand();
 scale.y.range([config.plot.height, 0]);
 
 // https://github.com/d3/d3-scale-chromatic
-color = d3.scaleSequential(d3.interpolateYlGnBu);
+color = d3.scaleSequential(d3.interpolateGnBu);
 
 let axis = {};  // axes for data
 axis.x = d3.axisTop(scale.x);
@@ -59,6 +62,8 @@ axis.x.tickPadding(0);
 
 axis.y = d3.axisLeft(scale.y);
 axis.y.tickPadding(0);
+
+
 
 // format the tick labels
 axis.x.tickFormat();
@@ -71,6 +76,7 @@ d3.csv(csv, convertRow).then(drawHeatmap);
 // function to convert column names into date
 // try: parseColumnName('1979-12');
 let parseColumnName = d3.timeParse('%Y');
+
 
 // function to convert each row
 // https://github.com/d3/d3-fetch/blob/master/README.md#csv
@@ -137,19 +143,9 @@ function drawHeatmap(data) {
   console.log('kept', data.length, 'rows');
   console.log(data);
 
-  // keys = data[0];
-  //
-  //
-  // keys = Object.keys(keys);
-  //
-  // keys = keys.slice(0,5)
-  //
-  // console.log(keys);
-
-
   // sorting is important in heatmaps
   // options: RegionName, SizeRank, HistoricAverage_1985thru1999
-  let sortColumn = 'Neighborhooods';
+  let sortColumn = '';
 
   data = data.sort(function(a, b) {
     return a[sortColumn] - b[sortColumn];
@@ -174,11 +170,13 @@ function drawHeatmap(data) {
   gx.attr("transform", translate(config.plot.x, config.margin.top));
   gx.call(axis.x);
 
+
   let gy = svg.append("g");
   gy.attr("id", "y-axis");
   gy.attr("class", "axis");
   gy.attr("transform", translate(config.plot.x, config.plot.y));
   gy.call(axis.y);
+
 
   let values = data.map(d => d.values);
 
@@ -231,11 +229,45 @@ function drawHeatmap(data) {
   cells.style("fill", d => color(d.value));
   cells.style("stroke", d => color(d.value));
 
+
+  cells.on("mouseover", function(d) {
+        let me = d3.select(this);
+        let div = d3.select("body").append("div");
+
+        div.attr("id", "details");
+        div.attr("class", "tooltip");
+
+        let rows = div.append("table")
+          .selectAll("tr")
+          .data(Object.keys(d))
+          .enter()
+          .append("tr");
+
+        rows.append("th").text(key => key);
+        rows.append("td").text(key => d[key]);
+
+      });
+      cells.on("mousemove", function(d) {
+        let div = d3.select("div#details");
+
+        // get height of tooltip
+        let bbox = div.node().getBoundingClientRect();
+
+        div.style("left", d3.event.clientX + "px")
+        div.style("top",  (d3.event.clientY - bbox.height) + "px");
+      });
+
+    cells.on("mouseout", function(d) {
+        d3.selectAll("div#details").remove();
+      });
+
+
+//legend and title
   svg
   .append("text")
   .attr("id", "charttitle")
    .attr("x",  35)
-   .attr("y", 50)
+   .attr("y", 40)
    .style("text-anchor", "left")
    .style("font-weight", 600)
    .style("font-size", "22px")
@@ -243,7 +275,7 @@ function drawHeatmap(data) {
 
   svg.append("g")
   .attr("class", "legendLinear")
-  .attr("transform", "translate(600,40)")
+  .attr("transform", "translate(600,30)")
 
 var legendLinear = d3.legendColor()
   .shapeWidth(3)
@@ -256,26 +288,23 @@ var legendLinear = d3.legendColor()
 
 svg.select(".legendLinear")
   .call(legendLinear);
-
-
-
   svg.append("text").attr("id","legendtitle")
    .attr("x", 640)
-   .attr("y",30)
+   .attr("y",20)
    .style("text-anchor", "middle")
    .style("font-weight", 600)
    .style("font-size", "14px")
    .text("Avg. Minutes");
    svg.append("text").attr("id","legendMinScale")
-    .attr("x", 570)
-    .attr("y",70)
+    .attr("x", 563)
+    .attr("y",41)
     .style("text-anchor", "left")
     .style("font-weight", 500)
     .style("font-size", "12px")
     .text(min);
     svg.append("text").attr("id","legendMaxScale")
-     .attr("x", 740)
-     .attr("y",70)
+     .attr("x", 755)
+     .attr("y",41)
      .style("text-anchor", "left")
      .style("font-weight", 500)
      .style("font-size", "12px")
