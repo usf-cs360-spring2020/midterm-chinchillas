@@ -230,36 +230,48 @@ function drawHeatmap(data) {
   cells.style("stroke", d => color(d.value));
 
 
-  cells.on("mouseover", function(d) {
-        let me = d3.select(this);
-        let div = d3.select("body").append("div");
+  cells.on("mouseover.hover", function(d) {
+    d3.select(this)
+      .raise()
+      .style("stroke", "green")
+      .style("stroke-width", 2);
 
-        div.attr("id", "details");
-        div.attr("class", "tooltip");
+    let div = d3.select("body").append("div");
 
-        let rows = div.append("table")
-          .selectAll("tr")
-          .data(Object.keys(d))
-          .enter()
-          .append("tr");
+    div.attr("id", "details");
+    div.attr("class", "tooltip");
 
-        rows.append("th").text(key => key);
-        rows.append("td").text(key => d[key]);
+    let datanew = createTooltip(Object(d));
 
-      });
-      cells.on("mousemove", function(d) {
-        let div = d3.select("div#details");
+    console.log(datanew);
 
-        // get height of tooltip
-        let bbox = div.node().getBoundingClientRect();
+    let rows = div.append("tablenew")
+      .selectAll("tr")
+      .data(datanew)
+      .enter()
+      .append("tr");
 
-        div.style("left", d3.event.clientX + "px")
-        div.style("top",  (d3.event.clientY - bbox.height) + "px");
-      });
+      console.log('bitch: ' ,d);
 
-    cells.on("mouseout", function(d) {
-        d3.selectAll("div#details").remove();
-      });
+    rows.append("th").text(d.date);
+    rows.append("td").text(d.value);
+    div.style("display", "inline");
+  });
+
+  cells.on("mousemove.hover", function(d) {
+    let div = d3.select("div#details");
+    let bbox = div.node().getBoundingClientRect();
+
+    //TODO: CHECK WHATS WRONG
+    div.style("left", d3.event.clientX + "px")
+    div.style("top", (d3.event.clientY + 2 * bbox.height) + "px");
+  });
+
+  cells.on("mouseout.hover", function(d) {
+    d3.select(this).style("stroke", color(d));
+    d3.selectAll("div#details").remove();
+  });
+
 
 
 //legend and title
@@ -311,6 +323,25 @@ svg.select(".legendLinear")
      .text(max);
 }
 
+function createTooltip(row, index) {
+
+    var f = d3.format(".3f");
+    console.log(row);
+    let out = {};
+    for (let col in row) {
+      switch (col) {
+
+        case 'date':
+          out['Year:\xa0'] = row[col];
+          break;
+        case 'value':
+          out['Minutes:\xa0'] = f(parseFloat(row[col]));
+        default:
+          break;
+      }
+    }
+    return out;
+  }
 // convert region to more condensed form
 function regionFormatter(d) {
   let text = d;
