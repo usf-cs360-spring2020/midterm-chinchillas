@@ -1,5 +1,5 @@
 // location of data file
-let csv = 'img/jaden1.csv';
+let csv = 'jaden1.csv';
 
 // configuration of svg/plot area
 let config = {
@@ -242,19 +242,14 @@ function drawHeatmap(data) {
     div.attr("class", "tooltip");
 
     let datanew = createTooltip(Object(d));
-
-    console.log(datanew);
-
     let rows = div.append("tablenew")
       .selectAll("tr")
-      .data(datanew)
+      .data(Object.keys(datanew))
       .enter()
       .append("tr");
 
-      console.log('bitch: ' ,d);
-
-    rows.append("th").text(d.date);
-    rows.append("td").text(d.value);
+    rows.append("th").text(key => key);
+    rows.append("td").text(key => datanew[key]);
     div.style("display", "inline");
   });
 
@@ -264,12 +259,13 @@ function drawHeatmap(data) {
 
     //TODO: CHECK WHATS WRONG
     div.style("left", d3.event.clientX + "px")
-    div.style("top", (d3.event.clientY + 2 * bbox.height) + "px");
+    div.style("top", (2 * d3.event.clientY + 2 * bbox.height) + "px");
   });
 
   cells.on("mouseout.hover", function(d) {
     d3.select(this).style("stroke", color(d));
     d3.selectAll("div#details").remove();
+    cells.style("stroke", d => color(d.value));
   });
 
 
@@ -326,6 +322,7 @@ svg.select(".legendLinear")
 function createTooltip(row, index) {
 
     var f = d3.format(".3f");
+    console.log("-----");
     console.log(row);
     let out = {};
     for (let col in row) {
