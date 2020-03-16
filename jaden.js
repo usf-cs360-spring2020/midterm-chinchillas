@@ -139,10 +139,6 @@ function drawHeatmap(data) {
   data = data.filter(function(row) {
     return row['Neighborhooods'];
   });
-
-  console.log('kept', data.length, 'rows');
-  console.log(data);
-
   // sorting is important in heatmaps
   // options: RegionName, SizeRank, HistoricAverage_1985thru1999
   let sortColumn = '';
@@ -154,10 +150,8 @@ function drawHeatmap(data) {
   // need domains to setup scales
   // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map
   let regions = data.map(row => row['Neighborhooods']);
-  console.log(regions);
 
   let dates = data[0].values.map(value => value.date);
-  console.log(dates);
 
   // now that we have data set the scale domain
   scale.x.domain(dates);
@@ -185,17 +179,13 @@ function drawHeatmap(data) {
 
  // get only the value part of the objects
  let mapped = merged.map(d => d.value);
- console.log(mapped);
+
 
  // console.log(mapped);
   // calculate the min, max, and median
   let min = d3.min(mapped);
   let max = d3.max(mapped);
   let mid = d3.mean(mapped);
-
-  console.log(mid);
-  console.log(max);
-  console.log(min);
 
 
   color.domain([min, max]);
@@ -258,8 +248,8 @@ function drawHeatmap(data) {
     let bbox = div.node().getBoundingClientRect();
 
     //TODO: CHECK WHATS WRONG
-    div.style("left", d3.event.clientX + "px")
-    div.style("top", (2 * d3.event.clientY + 2 * bbox.height) + "px");
+    div.style("left", d3.event.pageX + "px");
+    div.style("top", (d3.event.pageY - bbox.height) + "px");
   });
 
   cells.on("mouseout.hover", function(d) {
@@ -322,8 +312,6 @@ svg.select(".legendLinear")
 function createTooltip(row, index) {
 
     var f = d3.format(".3f");
-    console.log("-----");
-    console.log(row);
     let out = {};
     for (let col in row) {
       switch (col) {
@@ -332,7 +320,7 @@ function createTooltip(row, index) {
           out['Year:\xa0'] = row[col];
           break;
         case 'value':
-          out['Minutes:\xa0'] = f(parseFloat(row[col]));
+          out['Avg. Minutes:\xa0'] = f(parseFloat(row[col]));
         default:
           break;
       }
