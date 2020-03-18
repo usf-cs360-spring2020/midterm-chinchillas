@@ -1,5 +1,5 @@
 // location of data file
-let csv = 'jaden1.csv';
+let csv = 'img/jaden2.csv';
 
 // configuration of svg/plot area
 let config = {
@@ -73,11 +73,6 @@ axis.y.tickFormat(regionFormatter);
 // https://github.com/d3/d3-fetch/blob/master/README.md#csv
 d3.csv(csv, convertRow).then(drawHeatmap);
 
-// function to convert column names into date
-// try: parseColumnName('1979-12');
-let parseColumnName = d3.timeParse('%Y');
-
-
 // function to convert each row
 // https://github.com/d3/d3-fetch/blob/master/README.md#csv
 function convertRow(row, index) {
@@ -86,6 +81,7 @@ function convertRow(row, index) {
 
   // this will be the values from each yyyy-mm column
   out.values = [];
+  out.yearAverage = [];
   // loop through all of the columns in our original row
   // depending on column name, perform some sort of conversion
   for (let col in row) {
@@ -102,14 +98,22 @@ function convertRow(row, index) {
       case '2018':
       case '2019':
 
-        out[col] = parseFloat(row[col]);
+        var avg = parseFloat(row[col]);
+
+        out.yearAverage.push({
+          'date': col,
+          'value': avg
+        })
         break;
       // default:
           // convert column name into the date
 
     }
-    if(col != "Neighborhooods"){
+
+    if(col != "Neighborhooods" && col != "2015" && col != "2016" && col != "2017" && col != "2018" && col != "2019"){
       var date = col;
+
+      console.log(date);
 
       // convert the value to float
       var value = parseFloat(row[col]);
@@ -151,7 +155,9 @@ function drawHeatmap(data) {
   // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map
   let regions = data.map(row => row['Neighborhooods']);
 
-  let dates = data[0].values.map(value => value.date);
+  let dates = data[0].yearAverage.map(value => value.date);
+
+  console.log(dates);
 
   // now that we have data set the scale domain
   scale.x.domain(dates);
@@ -172,10 +178,15 @@ function drawHeatmap(data) {
   gy.call(axis.y);
 
 
-  let values = data.map(d => d.values);
+  let values = data.map(d => d.yearAverage);
+
+  console.log(values);
 
  // combine all of the individual object arrays into one
  let merged = d3.merge(values);
+
+ console.log(merged);
+
 
  // get only the value part of the objects
  let mapped = merged.map(d => d.value);
@@ -206,7 +217,7 @@ function drawHeatmap(data) {
 
   // create one rect per cell within row group
   let cells = rows.selectAll("rect")
-    .data(d => d.values)
+    .data(d => d.yearAverage)
     .enter()
     .append("rect");
 
