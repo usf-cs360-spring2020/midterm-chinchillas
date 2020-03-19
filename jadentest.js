@@ -28,7 +28,19 @@ svg.attr('height', config.svg.height);
 // svg.style("background-color", "pink")
 
 // setup plot area
+let plot = svg.append('g');
+plot.attr('id', 'plot');
+plot.attr('transform', translate(config.plot.x, config.plot.y))
 
+
+// use a rect to illustrate plot area
+let rect = plot.append('rect');
+rect.attr('id', 'background');
+
+rect.attr('x', 0);
+rect.attr('y', 0);
+rect.attr('width', config.plot.width);
+rect.attr('height', config.plot.height);
 
 // scales for data
 let scale = {};
@@ -46,7 +58,7 @@ color = d3.scaleSequential(d3.interpolateGnBu);
 
 let axis = {};  // axes for data
 axis.x = d3.axisTop(scale.x);
-axis.x.tickPadding(0);
+axis.x.tickPadding(1);
 
 axis.y = d3.axisLeft(scale.y);
 axis.y.tickPadding(0);
@@ -59,14 +71,11 @@ axis.y.tickFormat(regionFormatter);
 
 // load data
 // https://github.com/d3/d3-fetch/blob/master/README.md#csv
-let data = d3.csv(csv, convertRow);
-
-data.then(drawHeatmap);
+d3.csv(csv, convertRow).then(drawHeatmap);
 
 // function to convert each row
 // https://github.com/d3/d3-fetch/blob/master/README.md#csv
 function convertRow(row, index) {
-
   // this will be our converted output row
   let out = {};
 
@@ -122,235 +131,8 @@ function convertRow(row, index) {
 }
 
 function drawHeatmap(data) {
-  let view1 = svg.append('g');
-  view1.attr('id', 'view1');
   console.log(data);
   console.log(data[0]);
-
-  let plot = view1.append('g');
-  plot.attr('id', 'plot');
-  plot.attr('transform', translate(config.plot.x, config.plot.y))
-
-  // use a rect to illustrate plot area
-  let rect = plot.append('rect');
-  rect.attr('id', 'background');
-
-  rect.attr('x', 0);
-  rect.attr('y', 0);
-  rect.attr('width', config.plot.width);
-  rect.attr('height', config.plot.height);
-
-  // lets reduce data size to biggest regions
-  // the number of rows to keep
-  let keep = 41;
-
-  // filter dataset to smaller size
-  data = data.filter(function(row) {
-    return row['Neighborhooods'];
-  });
-  // sorting is important in heatmaps
-  // options: RegionName, SizeRank, HistoricAverage_1985thru1999
-  let sortColumn = '';
-
-  data = data.sort(function(a, b) {
-    return a[sortColumn] - b[sortColumn];
-  }).reverse();
-
-  // need domains to setup scales
-  // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map
-  let regions = data.map(row => row['Neighborhooods']);
-
-  let dates = data[0].yearAverage.map(value => value.date);
-
-  console.log(dates);
-
-  // now that we have data set the scale domain
-  scale.x.domain(dates);
-  scale.y.domain(regions);
-
-  // draw the x and y axis
-  let gx = view1.append("g");
-  gx.attr("id", "x-axis");
-  gx.attr("class", "axis");
-  gx.attr("transform", translate(config.plot.x, config.margin.top));
-  gx.call(axis.x);
-
-
-  let gy = view1.append("g");
-  gy.attr("id", "y-axis");
-  gy.attr("class", "axis");
-  gy.attr("transform", translate(config.plot.x, config.plot.y));
-  gy.call(axis.y);
-
-
-  let values = data.map(d => d.yearAverage);
-
-  console.log(values);
-
- // combine all of the individual object arrays into one
- let merged = d3.merge(values);
-
- console.log(merged);
-
-
- // get only the value part of the objects
- let mapped = merged.map(d => d.value);
-
-
- // console.log(mapped);
-  // calculate the min, max, and median
-  let min = d3.min(mapped);
-  let max = d3.max(mapped);
-  let mid = d3.mean(mapped);
-
-
-  color.domain([(min* .7), (max * .8)]);
-
-  // create one group per row
-  let rows = plot.selectAll("g.cell")
-    .data(data)
-    .enter()
-    .append("g");
-
-  rows.attr("class", "cell");
-  // rows.attr("id", d => "neighborhood-" + d.Neighborhooods);
-
-  // shift the entire group to the appropriate y-location
-  rows.attr("transform", function(d) {
-    return translate(0, scale.y(d.Neighborhooods));
-  });
-
-  // create one rect per cell within row group
-  let cells = rows.selectAll("rect")
-    .data(d => d.yearAverage)
-    .enter()
-    .append("rect");
-
-  cells.attr("x", d => scale.x(d.date));
-  cells.attr("y", 0); // handled by group transform
-  cells.attr("width", scale.x.bandwidth());
-  cells.attr("height", scale.y.bandwidth());
-
-  // here is the color magic!
-  cells.style("fill", d => color(d.value));
-  cells.style("stroke", d => color(d.value));
-
-
-  cells.on("mouseover.hover", function(d) {
-    d3.select(this)
-      .raise()
-      .style("stroke", "green")
-      .style("stroke-width", 2);
-
-    let div = d3.select("body").append("div");
-
-    div.attr("id", "details");
-    div.attr("class", "tooltip");
-
-    let datanew = createTooltip(Object(d));
-    let rows = div.append("tablenew")
-      .selectAll("tr")
-      .data(Object.keys(datanew))
-      .enter()
-      .append("tr");
-
-    rows.append("th").text(key => key);
-    rows.append("td").text(key => datanew[key]);
-    div.style("display", "inline");
-  });
-
-  cells.on("mousemove.hover", function(d) {
-    let div = d3.select("div#details");
-    let bbox = div.node().getBoundingClientRect();
-
-    //TODO: CHECK WHATS WRONG
-    div.style("left", d3.event.pageX + "px");
-    div.style("top", (d3.event.pageY - bbox.height) + "px");
-  });
-
-  cells.on("mouseout.hover", function(d) {
-    d3.select(this).style("stroke", color(d));
-    d3.selectAll("div#details").remove();
-    cells.style("stroke", d => color(d.value));
-  });
-
-  cells.on("click", function(d) {
-          console.log("click");
-          d3.selectAll("#view1").remove();
-          d3.selectAll("div#details").remove();
-          console.log(data);
-          drawHeatmap2(data, d.date);
-          console.log(d);
-
-          })
-
-
-
-
-//legend and title
-  view1
-  .append("text")
-  .attr("id", "charttitle")
-   .attr("x",  35)
-   .attr("y", 40)
-   .style("text-anchor", "left")
-   .style("font-weight", 600)
-   .style("font-size", "22px")
-   .text("Average Respone Time Per Neighborhoood Per Year");
-
-  view1.append("g")
-  .attr("class", "legendLinear")
-  .attr("transform", "translate(600,30)")
-
-var legendLinear = d3.legendColor()
-  .shapeWidth(3)
-  .cells(50)
-  .shapePadding(0)
-  .orient('horizontal')
-  .scale(color)
-
-  // .title("Avg. Minutes");
-
-view1.select(".legendLinear")
-  .call(legendLinear);
-  view1.append("text").attr("id","legendtitle")
-   .attr("x", 640)
-   .attr("y",20)
-   .style("text-anchor", "middle")
-   .style("font-weight", 600)
-   .style("font-size", "14px")
-   .text("Avg. Minutes");
-   view1.append("text").attr("id","legendMinScale")
-    .attr("x", 580)
-    .attr("y",41)
-    .style("text-anchor", "left")
-    .style("font-weight", 500)
-    .style("font-size", "12px")
-    .text(min);
-    view1.append("text").attr("id","legendMaxScale")
-     .attr("x", 755)
-     .attr("y",41)
-     .style("text-anchor", "left")
-     .style("font-weight", 500)
-     .style("font-size", "12px")
-     .text(max);
-}
-
-function drawHeatmap2(data, year) {
-  let view2 = svg.append('g');
-  view2.attr('id', 'view2');
-
-  let plot = view2.append('g');
-  plot.attr('id', 'plot');
-  plot.attr('transform', translate(config.plot.x, config.plot.y));
-
-  let rect = plot.append('rect');
-  rect.attr('id', 'background');
-
-  rect.attr('x', 0);
-  rect.attr('y', 0);
-  rect.attr('width', config.plot.width);
-  rect.attr('height', config.plot.height);
 
 
   // lets reduce data size to biggest regions
@@ -377,7 +159,7 @@ function drawHeatmap2(data, year) {
 
   let dates = data[0].values.map(value => value.date);
 
-  dates = dates.filter(d => d.includes(year));
+  dates = dates.filter(d => d.includes("2015"));
 
   console.log(dates);
 
@@ -389,21 +171,21 @@ function drawHeatmap2(data, year) {
 
 
   // draw the x and y axis
-  let gx = view2.append("g");
+  let gx = svg.append("g");
   gx.attr("id", "x-axis");
   gx.attr("class", "axis");
   gx.attr("transform", translate(config.plot.x, config.margin.top));
   gx.call(axis.x);
 
 
-  let gy = view2.append("g");
+  let gy = svg.append("g");
   gy.attr("id", "y-axis");
   gy.attr("class", "axis");
   gy.attr("transform", translate(config.plot.x, config.plot.y));
   gy.call(axis.y);
 
 
-  let values = data.map(d => d.values.filter(d => d.date.includes(year)));
+  let values = data.map(d => d.values.filter(d => d.date.includes("2015")));
   console.log(values);
 
 
@@ -423,7 +205,7 @@ function drawHeatmap2(data, year) {
   let mid = d3.mean(mapped);
 
 
-  color.domain([(min* .7), (max * .8)]);
+  color.domain([min, max]);
 
   // create one group per row
   let rows = plot.selectAll("g.cell")
@@ -493,19 +275,10 @@ function drawHeatmap2(data, year) {
     cells.style("stroke", d => color(d.value));
   });
 
-  view2.on("dblclick", function(d) {
-          console.log("double click");
-          d3.select("#view2").remove();
-          d3.selectAll("div#details").remove();
-          console.log(data);
-          drawHeatmap(data);
-
-          })
-
 
 
 //legend and title
-  view2
+  svg
   .append("text")
   .attr("id", "charttitle")
    .attr("x",  35)
@@ -515,7 +288,7 @@ function drawHeatmap2(data, year) {
    .style("font-size", "22px")
    .text("Average Respone Time Per Neighborhoood Per Year");
 
-  view2.append("g")
+  svg.append("g")
   .attr("class", "legendLinear")
   .attr("transform", "translate(600,30)")
 
@@ -528,23 +301,23 @@ var legendLinear = d3.legendColor()
 
   // .title("Avg. Minutes");
 
-view2.select(".legendLinear")
+svg.select(".legendLinear")
   .call(legendLinear);
-  view2.append("text").attr("id","legendtitle")
+  svg.append("text").attr("id","legendtitle")
    .attr("x", 640)
    .attr("y",20)
    .style("text-anchor", "middle")
    .style("font-weight", 600)
    .style("font-size", "14px")
    .text("Avg. Minutes");
-   view2.append("text").attr("id","legendMinScale")
-    .attr("x", 580)
+   svg.append("text").attr("id","legendMinScale")
+    .attr("x", 563)
     .attr("y",41)
     .style("text-anchor", "left")
     .style("font-weight", 500)
     .style("font-size", "12px")
     .text(min);
-    view2.append("text").attr("id","legendMaxScale")
+    svg.append("text").attr("id","legendMaxScale")
      .attr("x", 755)
      .attr("y",41)
      .style("text-anchor", "left")
