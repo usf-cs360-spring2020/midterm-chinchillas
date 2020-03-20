@@ -11,9 +11,15 @@
     <!-- https://bulma.io/ -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
     <!-- <link rel="stylesheet" href="https://unpkg.com/bulmaswatch/cyborg/bulmaswatch.min.css"> -->
+    <link rel="stylesheet" href="styleE.css">
+
+    <script src="https://d3js.org/d3.v5.min.js"></script>
 
     <!-- Load Font Awesome 5 (free) icons -->
     <script defer src="https://use.fontawesome.com/releases/v5.10.2/js/all.js"></script>
+    <!-- loads legend -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.js"></script>
+    <script src="enrique.js"></script>
   </head>
 
   <body>
@@ -131,6 +137,16 @@
 <p>Looking at the chart there is clearly a lag in response time when the medical incident call is non-life threatening, understandably so since there is no extreme urgency to get to the call. There is a significant increase in response time when there is a life threatening medical incident.
 In general over the years the non life threatening response time does not vary too much, however for life threatening calls, there is a nearly one minute average decrease (faster response time) for the year 2019. </br>
 There is unavailable data as to why this is, it would be interesting to further look into other data and see what may be happening. Decrease in resposne time between life threatening and non-life threatening calls is possibly due to sirens being on or not. While the faser response time for the year 2019 could be many factors.</p>
+
+
+<h2>D3 Implementation</h2>
+
+
+<script type="text/javascript">
+  d3.csv("enriqueData.csv").then(drawBarchart);
+</script>
+
+<svg id="barChart" width = "970" height = "700"></svg>
 
   </section>
 
