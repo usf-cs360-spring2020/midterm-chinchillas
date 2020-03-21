@@ -11,9 +11,15 @@
     <!-- https://bulma.io/ -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
     <!-- <link rel="stylesheet" href="https://unpkg.com/bulmaswatch/cyborg/bulmaswatch.min.css"> -->
+    <link rel="stylesheet" href="styleE.css">
+
+    <script src="https://d3js.org/d3.v5.min.js"></script>
 
     <!-- Load Font Awesome 5 (free) icons -->
     <script defer src="https://use.fontawesome.com/releases/v5.10.2/js/all.js"></script>
+    <!-- loads legend -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.js"></script>
+    <script src="enrique.js"></script>
   </head>
 
   <body>
@@ -39,7 +45,7 @@
       <div class="navbar-brand">
         <!-- TODO: Change link to repository homepage if needed -->
         <!-- TODO: Change which navbar-item is-active if needed -->
-        <a class="navbar-item is-active" href="index.html">
+        <a class="navbar-item" href="index.html">
           <span class="icon"><i class="fas fa-home"></i></span>
           <span>Home</span>
         </a>
@@ -127,10 +133,70 @@
 <h3>Stacked Bar Chart</h3>
 <p>For the stacked bar chart I would simply highlight the bar it was on and put a tooltip on it so as to wasily see the average response time, since it's harder to differentiate on a stacked bar chart. </p>
 
+<h2>Group Feedback</h2>
+<table class="table is-hoverable is-striped">
+<thead>
+    <tr>
+      <th>Feedback</th>
+      <th>Corrections</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>The chart does not need as many colors.</td>
+      <td>Colors were reduced to two, one for each call type group.</td>
+    </tr>
+    <tr>
+      <td>Label for minutes was not clear.</td>
+      <td>Labeled the y-axis with a minute label.</td>
+    </tr>
+    <tr>
+      <td>Chart title needed to be added.</td>
+      <td>Added a chart title in the svg.</td>
+    </tr>
+    <tr>
+      <td>Data could be interpreted in months instead of years.</td>
+      <td>Data interpreted per month for the same five year period.</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<h2>D3 Implementation</h2>
+
+
+<script type="text/javascript">
+  d3.csv("enriqueData.csv").then(drawBarchart);
+</script>
+
+<svg id="barChart" width = "970" height = "700"></svg>
+</br>
+</br>
+
+<h2>Interactivity</h2>
+<p>The interactivity added to this barchart includes a tooltip when hovering over bars, a grey out of all other bars, except it's
+  corresponding month in the second bar chart when hovering over a specific bar, and a highlight and grey out of the specific
+  bar-chart when hovering over the legend.</p>
+
+<h2>Data</h2>
+<p> The data from this chart is the data divided by months for the 2015 to 2019 range of the medical call types, and they were
+grouped by the group types of "non life threatening" and "potentially life threateneing". The data was also adjusted for december 2019,
+ which was giving response times in negative minutes. We may have to delve a little deeper to see if SFFD have time-travelling Response
+trucks, but until it's confirmed, the data has been adjusted to not include those numbers.</p>
+
 <h2>Interpretation</h2>
-<p>Looking at the chart there is clearly a lag in response time when the medical incident call is non-life threatening, understandably so since there is no extreme urgency to get to the call. There is a significant increase in response time when there is a life threatening medical incident.
-In general over the years the non life threatening response time does not vary too much, however for life threatening calls, there is a nearly one minute average decrease (faster response time) for the year 2019. </br>
-There is unavailable data as to why this is, it would be interesting to further look into other data and see what may be happening. Decrease in resposne time between life threatening and non-life threatening calls is possibly due to sirens being on or not. While the faser response time for the year 2019 could be many factors.</p>
+<p>Looking at the chart there is clearly a lag in response time when the medical incident call is non-life threatening,
+  understandably so since there is no extreme urgency to get to the call. There is a significant increase in response time when
+  there is a life threatening medical incident.
+In general over the months the non life threatening response time does not vary too much, nor does it vary much for the potentially Life
+threatening calls, there is a diffenrece between this and the prototype, after having cleaned up a negatice response time value for the month of december 2019. </br>
+ Decrease in resposne time between life threatening and non-life threatening calls is possibly due to sirens being on or not.</p>
+
+
+<h2>Inspiration </h2>
+<p>  <a href="https://observablehq.com/d/68ffb053bdd161b9" target="blank">From Sophie's in class interactivity lab.<a></p>
+  <p> <a href = "https://d3-legend.susielu.com/#color"target="blank">d3 Legend Builder</p>
+     </section>
 
   </section>
 
