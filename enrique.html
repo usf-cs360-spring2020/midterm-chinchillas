@@ -45,7 +45,7 @@
       <div class="navbar-brand">
         <!-- TODO: Change link to repository homepage if needed -->
         <!-- TODO: Change which navbar-item is-active if needed -->
-        <a class="navbar-item is-active" href="index.html">
+        <a class="navbar-item" href="index.html">
           <span class="icon"><i class="fas fa-home"></i></span>
           <span>Home</span>
         </a>
@@ -133,6 +133,34 @@
 <h3>Stacked Bar Chart</h3>
 <p>For the stacked bar chart I would simply highlight the bar it was on and put a tooltip on it so as to wasily see the average response time, since it's harder to differentiate on a stacked bar chart. </p>
 
+<h2>Group Feedback</h2>
+<table class="table is-hoverable is-striped">
+<thead>
+    <tr>
+      <th>Feedback</th>
+      <th>Corrections</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>The chart does not need as many colors.</td>
+      <td>Colors were reduced to two, one for each call type group.</td>
+    </tr>
+    <tr>
+      <td>Label for minutes was not clear.</td>
+      <td>Labeled the y-axis with a minute label.</td>
+    </tr>
+    <tr>
+      <td>Chart title needed to be added.</td>
+      <td>Added a chart title in the svg.</td>
+    </tr>
+    <tr>
+      <td>Data could be interpreted in months instead of years.</td>
+      <td>Data interpreted per month for the same five year period.</td>
+    </tr>
+  </tbody>
+</table>
+
 
 <h2>D3 Implementation</h2>
 
@@ -145,10 +173,16 @@
 </br>
 </br>
 
-h2>Interactivity</h2>
-<p>The interactivity added to this barchart includes a tooltip when hovering over bars, a gey out of all other bars, except it's
-  corresponding month in the second bar chart when hovering over a specific bar, and a highlight and grey out of the specific bar-chart
-when hovering over the legend.</p>
+<h2>Interactivity</h2>
+<p>The interactivity added to this barchart includes a tooltip when hovering over bars, a grey out of all other bars, except it's
+  corresponding month in the second bar chart when hovering over a specific bar, and a highlight and grey out of the specific
+  bar-chart when hovering over the legend.</p>
+
+<h2>Data</h2>
+<p> The data from this chart is the data divided by months for the 2015 to 2019 range of the medical call types, and they were
+grouped by the group types of "non life threatening" and "potentially life threateneing". The data was also adjusted for december 2019,
+ which was giving response times in negative minutes. We may have to delve a little deeper to see if SFFD have time-travelling Response
+trucks, but until it's confirmed, the data has been adjusted to not include those numbers.</p>
 
 <h2>Interpretation</h2>
 <p>Looking at the chart there is clearly a lag in response time when the medical incident call is non-life threatening,

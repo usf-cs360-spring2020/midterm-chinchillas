@@ -288,7 +288,8 @@ let legendOrdinal = d3.legendColor()
         bars2.filter(e => (d.Month !== e.Month)).transition().style("fill", "lightgrey").attr("opacity", "0.7");
       }
       else{
-        bars.filter(e => (d.Month !== e.Month)).transition().style("fill", "lightgrey").attr("opacity", "0.7");
+        bars.filter(e => (d.Month !== e.Month))
+        .transition().style("fill", "lightgrey").attr("opacity", "0.7");
       }
     })
     .on("cellout", function(d) {
