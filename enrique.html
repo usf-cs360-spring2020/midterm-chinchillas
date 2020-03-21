@@ -133,11 +133,6 @@
 <h3>Stacked Bar Chart</h3>
 <p>For the stacked bar chart I would simply highlight the bar it was on and put a tooltip on it so as to wasily see the average response time, since it's harder to differentiate on a stacked bar chart. </p>
 
-<h2>Interpretation</h2>
-<p>Looking at the chart there is clearly a lag in response time when the medical incident call is non-life threatening, understandably so since there is no extreme urgency to get to the call. There is a significant increase in response time when there is a life threatening medical incident.
-In general over the years the non life threatening response time does not vary too much, however for life threatening calls, there is a nearly one minute average decrease (faster response time) for the year 2019. </br>
-There is unavailable data as to why this is, it would be interesting to further look into other data and see what may be happening. Decrease in resposne time between life threatening and non-life threatening calls is possibly due to sirens being on or not. While the faser response time for the year 2019 could be many factors.</p>
-
 
 <h2>D3 Implementation</h2>
 
@@ -147,6 +142,27 @@ There is unavailable data as to why this is, it would be interesting to further 
 </script>
 
 <svg id="barChart" width = "970" height = "700"></svg>
+</br>
+</br>
+
+h2>Interactivity</h2>
+<p>The interactivity added to this barchart includes a tooltip when hovering over bars, a gey out of all other bars, except it's
+  corresponding month in the second bar chart when hovering over a specific bar, and a highlight and grey out of the specific bar-chart
+when hovering over the legend.</p>
+
+<h2>Interpretation</h2>
+<p>Looking at the chart there is clearly a lag in response time when the medical incident call is non-life threatening,
+  understandably so since there is no extreme urgency to get to the call. There is a significant increase in response time when
+  there is a life threatening medical incident.
+In general over the months the non life threatening response time does not vary too much, nor does it vary much for the potentially Life
+threatening calls, there is a diffenrece between this and the prototype, after having cleaned up a negatice response time value for the month of december 2019. </br>
+ Decrease in resposne time between life threatening and non-life threatening calls is possibly due to sirens being on or not.</p>
+
+
+<h2>Inspiration </h2>
+<p>  <a href="https://observablehq.com/d/68ffb053bdd161b9" target="blank">From Sophie's in class interactivity lab.<a></p>
+  <p> <a href = "https://d3-legend.susielu.com/#color"target="blank">d3 Legend Builder</p>
+     </section>
 
   </section>
 

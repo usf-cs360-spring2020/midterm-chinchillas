@@ -260,7 +260,7 @@ let y = d3.scaleLinear()
     svg
     .append("text")
     .attr("id", "charttitle")
-     .attr("x",  75)
+     .attr("x",  55)
      .attr("y", 20)
      .style("text-anchor", "left")
      .style("font-weight", 600)
@@ -277,7 +277,7 @@ let y = d3.scaleLinear()
 
 svg.append("g")
   .attr("class", "legendOrdinal")
-  .attr("transform", "translate(650,50)");
+  .attr("transform", "translate(640,70)");
 
 let legendOrdinal = d3.legendColor()
   .shape("path", d3.symbol().type(d3.symbolCircle).size(150)())
