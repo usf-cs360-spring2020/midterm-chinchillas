@@ -120,6 +120,7 @@ function convertRow(row, index) {
 
   return out;
 }
+let times_called = 0;
 
 function drawHeatmap(data) {
   let view1 = svg.append('g');
@@ -150,11 +151,16 @@ function drawHeatmap(data) {
   });
   // sorting is important in heatmaps
   // options: RegionName, SizeRank, HistoricAverage_1985thru1999
-  let sortColumn = '';
-
+  let sortColumn = 'Neighborhoood';
+  //
   data = data.sort(function(a, b) {
     return a[sortColumn] - b[sortColumn];
-  }).reverse();
+  });
+
+  if(times_called === 0 ){
+    data = data.reverse();
+    times_called++;
+  }
 
   // need domains to setup scales
   // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map
@@ -367,7 +373,7 @@ function drawHeatmap2(data, year) {
 
   data = data.sort(function(a, b) {
     return a[sortColumn] - b[sortColumn];
-  }).reverse();
+  });
   // data = data.filter(function(data.values)){
   //   // if
   // }
