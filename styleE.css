@@ -1,6 +1,3 @@
-.label{
-  display: none;
-}
 
 .tooltip {
   position: absolute;
@@ -24,4 +21,8 @@
 
 .grid path {
   stroke-width: 0;
+}
+
+.label {
+  font-size: 10pt;
 }
