@@ -1,348 +1,309 @@
-var width = 940;
-var height = 250;
 
-var pad = {
-  top: 10, bottom: 25,
-  left: 35, right: 10
-};
+function drawBarchart(data){
+  // configuration of svg/plot area
+  let config = {
+    'svg': {},
+    'margin': {},
+    'plot': {}
+  };
 
-var plot = {
-  width: width - pad.left - pad.right,
-  height: height - pad.top - pad.bottom
-};
+  config.margin.top = 120;
+  config.margin.right = 25;
+  config.margin.bottom = 0;
+  config.margin.left = 30;
 
-var data = [];
+  config.svg.height = 700 - config.margin.top - config.margin.bottom;
+  config.svg.width = 970 - config.margin.left - config.margin.right;
 
-var scales = {
-  average: d3.scaleLinear(),
-  total: d3.scaleLinear(),
-  date: d3.scaleTime(),
-  district: d3.scaleBand()
-};
 
-console.log("plot area:", [plot.width, plot.height]);
+ let lowerpad = 0;//for moving the chart up and down.
+  // setup svg
+  let svg = d3.select("#heatmapNed");
+  console.log("ned");
+  svg.attr('width', config.svg.width + config.margin.left +config.margin.right);
+  svg.attr('height', config.svg.height + 2*config.margin.top + config.margin.bottom);
+  svg.attr("transform", translate(config.margin.left, config.margin.top))
+  //svg.style("background-color", "pink");
 
-var remote = "https://data.sfgov.org/resource/8b9n-iqj8.json?$limit=4000";
-var local = "8b9n-iqj8.json";
+//x-axis scaleband (for months) to the middle of the svg for the left bar-chart
+  let x = d3.scaleBand()
+  .range([0, config.svg.width/2])// to the middle
+  .domain(data.map(d => d.Month))
+  .paddingInner(0.2)
+  .paddingOuter(0.1);
 
-d3.json(local, callback);
+//x-axis scaleband (for months) from the middle of the svg for the right bar-chart
+  let x2 = d3.scaleBand()
+  .range([config.svg.width/2, config.svg.width]) // from the middle
+  .domain(data.map(d => d.Month))
+  .paddingInner(0.2)
+  .paddingOuter(0.1);
 
-function callback(error, json) {
-  if (error) throw error;
+//y-axis scale linear by minutes
+let y = d3.scaleLinear()
+  .domain([0, d3.max(data, d => d.NonLifeThreatening)])
+  .range([config.svg.height, 0])
+  .nice();
 
-  // convert and filter data
-  json.forEach(function(current, index, array) {
-    if (current.pddistrict === undefined) return;
+//drawing the x axis left
+  xaxis = d3.axisBottom(x)
+  .tickSize(5)
+  .tickPadding(5)
+  .tickSizeOuter(0);
 
-    data.push({
-      // convert to number
-      incidents: +current.count_incidntnum,
-      // convert to titlecase string
-      district: current.pddistrict[0] + current.pddistrict.substr(1).toLowerCase(),
-      // convert to date
-      date: new Date(current.date)
-    });
-  });
+//drawing the x axis right
+  xaxis2 = d3.axisBottom(x2)
+  .tickSize(5)
+  .tickPadding(5)
+  .tickSizeOuter(0);
 
-  console.log(data);
+  yaxis = d3.axisLeft(y)
+  .tickValues(d3.range(0, 11, 1))
+  .ticks(10)
+  .tickPadding(1);
 
-  // want one bar and one line per neighborhood
-  // so we must nest the data by neighborhood
-  data = d3.nest()
-    .key(function(d) { return d.district; })
-    .rollup(function(group) {
-      // this will become the "value" object for each outer element
-      return {
-        points: group,
-        min: d3.min(group,  function(d) { return d.incidents; }),
-        avg: d3.mean(group, function(d) { return d.incidents; }),
-        max: d3.max(group,  function(d) { return d.incidents; })
-      };
-    })
-    .entries(data);
 
-  // sort by average
-  data.sort(function(outer1, outer2) {
-    return d3.descending(outer1.value.avg, outer2.value.avg);
-  });
 
-  console.log(data);
+//left axis
+  svg.append("g")
+  .attr("id", "x-axis")
+  .attr("transform", `translate(${config.margin.left}, ${config.svg.height + config.margin.top - lowerpad})`)
+  .call(xaxis)
+  .selectAll("text") //from here adding the months texts and rotating them
+    .attr("y", 6) //to align the rotation to the tick mark
+    .attr("x", 9)
+    .attr("dy", ".35em")
+    .attr("transform", "rotate(45)")
+    .style("text-anchor", "start");
 
-  // setup the scale domains
-  setupScales();
+//left axis
+  svg.append("g")
+  .attr("id", "x-axis2")
+  .attr("transform", `translate(${config.margin.left}, ${config.svg.height + config.margin.top - lowerpad})`)
+  .call(xaxis2)
+  .selectAll("text") //from here adding the months texts and rotating them
+    .attr("y", 6) //to align the rotation to the tick mark
+    .attr("x", 9)
+    .attr("dy", ".35em")
+    .attr("transform", "rotate(45)")
+    .style("text-anchor", "start");
 
-  // draw the two graphs
-  drawLines(d3.select("svg#lines"));
-  drawBars(d3.select("svg#bars"));
+  svg.append("g")
+  .attr("id", "y-axis")
+  .attr("transform", `translate(${config.margin.left}, ${config.margin.top - lowerpad})`)
+  .call(yaxis);
 
-  // add interactivity
-  interactBars();
-  interactLines();
-}
+  // add the Y gridlines
+  svg.append("g")
+      .attr("class", "grid")
+      .attr("transform", `translate(${config.margin.left}, ${config.margin.top - lowerpad})`)
+      .call(yaxis
+          .tickSize(-config.svg.width)
+          .tickFormat("")
+      );
 
-function interactBars() {
-  var rects = d3.select("svg#bars")
-    .select("g#plot")
-    .selectAll("rect");
 
-  rects.on("mouseover", function(outer) {
-    var t = d3.transition();
 
-    // transition this bar to highlight color
-    d3.select(this)
-      .transition(t)
-      .style("fill", "gray");
+//minute label for y-axis
+  svg
+    .append("text")
+    .attr("class", "legend-text")
+    .attr("x", config.margin.left - 20)
+    .attr("y", config.margin.top -18)
+    .text("Minutes")
+    .attr("alignment-baseline", "middle")
+    .style("font-size","12px")
+    .style('fill', 'black');
+//label for non life threatening calls
+    // svg
+    //   .append("text")
+    //   .attr("class", "legend-text")
+    //   .attr("x", config.margin.left + 30)
+    //   .attr("y", config.margin.top -40)
+    //   .text("Non Life Threatening Medical Calls")
+    //   .attr("alignment-baseline", "middle")
+    //   .style("font-size","20px")
+    //   .style('fill', 'black');
 
-    var g = d3.select("svg#lines")
-      .select("g#" + outer.key);
+//label for non life threatening calls
+    // svg
+    //   .append("text")
+    //   .attr("class", "legend-text")
+    //   .attr("x", config.margin.left + 475)
+    //   .attr("y", config.margin.top -40)
+    //   .text("Potentially Life Threatening Medical Calls")
+    //   .attr("alignment-baseline", "middle")
+    //   .style("font-size","20px")
+    //   .style('fill', 'black');
 
-    // move line group to front
-    g.raise();
+//drawbars left
+  let bars = svg.append("g")
+  .attr("id", "bars")
+  .attr("transform", `translate(${config.margin.left}, ${config.margin.top})`)
+  .selectAll("rect")
+  .data(data)
+  .enter()
+  .append("rect")
+  .attr("x", d => x(d.Month))
+  .attr("y", d => y(d.NonLifeThreatening))
+  .attr("width", x.bandwidth())
+  .attr("height", d => config.svg.height- lowerpad - y(d.NonLifeThreatening))
+  .style("fill", "#3a9dc7");
 
-    // transition points to highlight color
-    g.selectAll("circle")
-      .transition(t)
-      .style("fill", "gray")
-      .attr("r", 3);
+//drawbars right
+  let bars2 = svg.append("g")
+  .attr("id", "bars2")
+  .attr("transform", `translate(${config.margin.left}, ${config.margin.top})`)
+  .selectAll("rect")
+  .data(data)
+  .enter()
+  .append("rect")
+  .attr("x", d => x2(d.Month))
+  .attr("y", d => y(d.PotentiallyLifeThreatening))
+  .attr("width", x2.bandwidth())
+  .attr("height", d => config.svg.height- lowerpad - y(d.PotentiallyLifeThreatening))
+  .style("fill", "#7FFFD4");
 
-    // transition line to highlight color
-    g.select("path")
-      .transition(t)
-      .style("stroke", "gray")
-      .style("stroke-width", "2px");
-  });
+  //Mouseover start
 
-  rects.on("mouseout", function(outer) {
-    var me = d3.select(this);
-    var on = me.classed("on");
-
-    // only fade out bar and line if this bar is not active
-    if (!on) {
-      var t = d3.transition();
-
-      // transition bar back to background color
-      me.transition().style("fill", "lightgray");
-
-      // transition line back ot background color
-      var g = d3.select("svg#lines")
-        .select("g#" + outer.key);
-
-      g.selectAll("circle")
-        .transition(t)
-        .style("fill", "lightgray")
-        .attr("r", 2);
-
-      g.select("path")
-        .transition(t)
-        .style("stroke", "lightgray")
-        .style("stroke-width", "1px");
-    }
-  });
-
-  // filter line on click
-  rects.on("click", function(outer) {
-    var me = d3.select(this);
-    var on = me.classed("on");
-
-    // if not active make active and filter
-    if (!on) {
-      d3.select("svg#lines")
-        .select("g#plot")
-        .selectAll("g")
-        .filter(function(d) {
-          return outer.key != d.key;
-        })
-        .transition()
-        .style("opacity", 0)
-        .on("end", function(d) {
-          d3.select(this).style("visibility", "hidden");
-        });
-    }
-    else {
-      // unhide all of the lines
-      d3.select("svg#lines")
-        .select("g#plot")
-        .selectAll("g")
-        .filter(function(d) {
-          return outer.key != d.key;
-        })
-        .style("visibility", "visible")
-        .transition()
-        .style("opacity", 1);
-
-      // let mouseover event fix the line color
-    }
-
-    // toggle whether this element is active
-    me.classed("on", !on);
-  });
-
-  // TODO What about hovering while filtering?
-  // TODO What about clicking two bars?
-  // TODO Add label text
-}
-
-// see: https://bl.ocks.org/mbostock/8033015
-function interactLines() {
-  // use the voronoi polygon generator
-  var voronoi = d3.voronoi()
-    .x(function(inner) { return scales.date(inner.date); })
-    .y(function(inner) { return scales.total(inner.incidents); })
-    .extent([[0, 0],[plot.width, plot.height]]);
-
-  // create a group for the voronoi polygons
-  var vg = d3.select("svg#lines")
-    .append("g")
-    .attr("id", "voronoi")
-    .attr("transform", translate(pad.left, pad.top))
-    .style("pointer-events", "all");
-
-  // collect all the line points into one array
-  var all = d3.merge(data.map(function(outer) { return outer.value.points; }));
-
-  // add a polygon for every point
-  vg.selectAll("path")
-    .data(voronoi.polygons(all))
-    .enter()
-    .append("path")
-    // .attr("id", function(d) { d.district })
-    .attr("d", function(d) { return d ? "M" + d.join("L") + "Z" : null; })
-    .style("fill", "none")
-    .style("stroke", "none")
-    .on("mouseover", function(inner) {
-      d3.select(inner.data.point).style("visibility", "visible");
-    })
-    .on("mouseout", function(inner) {
-      d3.select(inner.data.point).style("visibility", "hidden");
+  bars.on("mouseover", function(d) {
+      bars.filter(e => (d.Month !== e.Month)).transition().style("fill", "lightgrey").attr("opacity", "0.7");
+      bars2.filter(e => (d.Month !== e.Month)).transition().style("fill", "lightgrey").attr("opacity", "0.7");
     });
 
-  // TODO Voronoi per line
-  // TODO Add label text
-}
+    bars2.on("mouseover", function(d) {
+        bars2.filter(e => (d.Month !== e.Month)).transition().style("fill", "lightgrey").attr("opacity", "0.7");
+        bars.filter(e => (d.Month !== e.Month)).transition().style("fill", "lightgrey").attr("opacity", "0.7");
+      });
 
-function setupScales() {
-  var firstDistrict = data[0].value.points;
-  var dateExtent = d3.extent(firstDistrict, function(inner) { return inner.date; });
-  scales.date.range([0, plot.width]);
-  scales.date.domain(dateExtent);
-
-  var maxAverage = d3.max(data, function(outer) { return outer.value.avg; });
-  scales.average.range([plot.height, 0]);
-  scales.average.domain([0, maxAverage]).nice();
-
-  var minTotal = d3.min(data, function(outer) { return outer.value.min; });
-  var maxTotal = d3.max(data, function(outer) { return outer.value.max; });
-  scales.total.range([plot.height, 0]);
-  scales.total.domain([minTotal, maxTotal]).nice();
-
-  var districts = data.map(function(outer) { return outer.key; });
-  scales.district.range([0, plot.width]);
-  scales.district.domain(districts);
-  scales.district.paddingInner(0.1);
-  scales.district.paddingOuter(0.1);
-}
-
-function drawLines(svg) {
-  svg.attr("width", width);
-  svg.attr("height", height);
-
-  // create plot
-  var g = svg.append("g");
-
-  g.attr("id", "plot");
-  g.attr("transform", translate(pad.left, pad.top));
-
-  // draw lines
-  var line = d3.line()
-    .x(function(inner) { return scales.date(inner.date); })
-    .y(function(inner) { return scales.total(inner.incidents); });
-
-  var lines = g.selectAll("g")
-    .data(data)
-    .enter()
-    .append("g")
-    .attr("id", function(outer) { return outer.key; });
-
-  lines.append("path")
-    .attr("d", function(outer) {
-      return line(outer.value.points);
-    })
-    .style("stroke", "lightgray");
-
-  // draw points
-  lines.selectAll("circle")
-    .data(function(outer) { return outer.value.points; })
-    .enter()
-    .append("circle")
-    .attr("id", function(inner, i) { return inner.district + String(i); })
-    .attr("cx", function(inner) { return scales.date(inner.date); })
-    .attr("cy", function(inner) { return scales.total(inner.incidents); })
-    .attr("r", 2)
-    .style("fill", "lightgray")
-    .style("visibility", "hidden")
-    // needed for voronoi
-    .each(function(inner) {
-      inner.point = this;
+  bars.on("mouseout", function(d) {
+      bars.transition().style("fill", "#3a9dc7").attr("opacity", "1");
+      bars2.transition().style("fill", "#7FFFD4").attr("opacity", "1");
     });
 
-  // add x-axis
-  svg.append("g")
-    .attr("id", "x")
-    .attr("class", "axis")
-    .attr("transform", translate(pad.left, pad.top + plot.height))
-    .call(d3.axisBottom(scales.date));
+  bars2.on("mouseout", function(d) {
+      bars2.transition().style("fill", "#7FFFD4").attr("opacity", "1");
+      bars.transition().style("fill", "#3a9dc7").attr("opacity", "1");
+    });
 
-  // add y-axis
-  svg.append("g")
-    .attr("id", "y")
-    .attr("class", "axis")
-    .attr("transform", translate(pad.left, pad.top))
-    .call(d3.axisLeft(scales.total));
+  //mouseover end
 
-  return lines;
-}
+  //tooltip
 
-function drawBars(svg) {
-  svg.attr("width", width);
-  svg.attr("height", height);
+  bars.on("mouseover.hover2", function(d) {
+     let me = d3.select(this);
+     let div = d3.select("body").append("div");
 
-  // create plot
-  var g = svg.append("g");
+     div.attr("id", "details");
+     div.attr("class", "tooltip");
 
-  g.attr("id", "plot");
-  g.attr("transform", translate(pad.left, pad.top));
+     let rows = div.append("table")
+       .selectAll("tr")
+       .data(Object.keys(d))
+       .enter()
+       .append("tr");
+       console.log(rows);
+     rows.append("th").text(key => key);
+     rows.append("td").text(key => d[key]);
+   });
 
-  // draw bars
-  var bars = g.selectAll("g")
-    .data(data)
-    .enter()
-    .append("g")
-    .attr("id", function(outer) { return outer.key; });
+ bars.on("mousemove.hover2", function(d) {
+     let div = d3.select("div#details");
 
-  bars.append("rect")
-    .attr("x", function(outer) { return scales.district(outer.key); })
-    .attr("y", function(outer) { return scales.average(outer.value.avg); })
-    .attr("width", scales.district.bandwidth())
-    .attr("height", function(outer) { return plot.height - scales.average(outer.value.avg); })
-    .style("fill", "lightgray");
+     // get height of tooltip
+     let bbox = div.node().getBoundingClientRect();
 
-  // add x-axis
-  svg.append("g")
-    .attr("id", "x")
-    .attr("class", "axis")
-    .attr("transform", translate(pad.left, pad.top + plot.height))
-    .call(d3.axisBottom(scales.district));
+     div.style("left", d3.event.pageX + "px")
+     div.style("top",  (d3.event.pageY - bbox.height) + "px");
+   });
 
-  // add y-axis
-  svg.append("g")
-    .attr("id", "y")
-    .attr("class", "axis")
-    .attr("transform", translate(pad.left, pad.top))
-    .call(d3.axisLeft(scales.average));
+ bars.on("mouseout.hover2", function(d) {
+     d3.selectAll("div#details").remove();
+   });
 
-  return bars;
-}
+   //bars2
 
-function translate(x, y) {
-  return "translate(" + String(x) + "," + String(y) + ")";
+   var highlight = document.createElement("tr");
+   highlight.className = ("is-selected");
+
+   bars2.on("mouseover.hover2", function(d) {
+      let me = d3.select(this);
+      let div = d3.select("body").append("div");
+
+      div.attr("id", "details");
+      div.attr("class", "tooltip");
+
+      let rows = div.append("table")
+        .selectAll("tr")
+        .data(Object.keys(d))
+        .enter()
+        .append("tr");
+
+      rows.append("th").text(key => key);
+      rows.append("td").text(key => d[key]);
+      console.log(rows);
+    });
+
+  bars2.on("mousemove.hover2", function(d) {
+      let div = d3.select("div#details");
+
+      // get height of tooltip
+      let bbox = div.node().getBoundingClientRect();
+
+      div.style("left", d3.event.pageX + "px")
+      div.style("top",  (d3.event.pageY - bbox.height) + "px");
+    });
+
+  bars2.on("mouseout.hover2", function(d) {
+      d3.selectAll("div#details").remove();
+    });
+
+    svg
+    .append("text")
+    .attr("id", "charttitle")
+     .attr("x",  55)
+     .attr("y", 20)
+     .style("text-anchor", "left")
+     .style("font-weight", 600)
+     .style("font-size", "22px")
+     .text("Average Response time of life threatening vs non life threatening calls");
+
+
+    //legend
+    let ordinal = d3.scaleOrdinal()
+  .domain(["Potentially Life Threatening Medical Calls", "Non life threatening medical calls"])
+  .range(["#3a9dc7", "#7FFFD4"]);
+
+
+
+svg.append("g")
+  .attr("class", "legendOrdinal")
+  .attr("transform", "translate(640,70)");
+
+let legendOrdinal = d3.legendColor()
+  .shape("path", d3.symbol().type(d3.symbolCircle).size(150)())
+  .scale(ordinal)
+  .on("cellover", function(d) {
+      console.log(d);
+      if (d == "Potentially Life Threatening Medical Calls"){
+        bars2.filter(e => (d.Month !== e.Month)).transition().style("fill", "lightgrey").attr("opacity", "0.7");
+      }
+      else{
+        bars.filter(e => (d.Month !== e.Month))
+        .transition().style("fill", "lightgrey").attr("opacity", "0.7");
+      }
+    })
+    .on("cellout", function(d) {
+        bars2.transition().style("fill", "#7FFFD4").attr("opacity", "1");
+        bars.transition().style("fill", "#3a9dc7").attr("opacity", "1");
+      });
+
+svg.select(".legendOrdinal")
+  .call(legendOrdinal);
+
+
+  function translate(x, y) {
+    return 'translate(' + x + ',' + y + ')';
+  }
+
 }
