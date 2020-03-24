@@ -1,0 +1,985 @@
+Neighborhood,Hour,Value
+Lincoln Park,0,15.14
+Lincoln Park,1,8.83
+Lincoln Park,2,10.00
+Lincoln Park,3,11.18
+Lincoln Park,4,12.53
+Lincoln Park,5,21.67
+Lincoln Park,6,8.95
+Lincoln Park,7,10.76
+Lincoln Park,8,12.07
+Lincoln Park,9,7.39
+Lincoln Park,10,9.57
+Lincoln Park,11,13.25
+Lincoln Park,12,11.88
+Lincoln Park,13,12.78
+Lincoln Park,14,12.09
+Lincoln Park,15,10.69
+Lincoln Park,16,19.96
+Lincoln Park,17,10.48
+Lincoln Park,18,17.35
+Lincoln Park,19,10.60
+Lincoln Park,20,12.14
+Lincoln Park,21,9.55
+Lincoln Park,22,9.43
+Lincoln Park,23,11.36
+Treasure Island,0,13.12
+Treasure Island,1,12.30
+Treasure Island,2,12.99
+Treasure Island,3,13.94
+Treasure Island,4,13.49
+Treasure Island,5,12.65
+Treasure Island,6,13.26
+Treasure Island,7,12.96
+Treasure Island,8,12.83
+Treasure Island,9,11.48
+Treasure Island,10,11.10
+Treasure Island,11,11.46
+Treasure Island,12,11.89
+Treasure Island,13,11.78
+Treasure Island,14,14.23
+Treasure Island,15,13.91
+Treasure Island,16,13.67
+Treasure Island,17,13.14
+Treasure Island,18,12.67
+Treasure Island,19,11.43
+Treasure Island,20,13.20
+Treasure Island,21,12.22
+Treasure Island,22,12.54
+Treasure Island,23,16.28
+Presidio,0,10.80
+Presidio,1,10.65
+Presidio,2,11.82
+Presidio,3,10.28
+Presidio,4,11.22
+Presidio,5,12.35
+Presidio,6,12.37
+Presidio,7,12.65
+Presidio,8,11.27
+Presidio,9,10.64
+Presidio,10,12.18
+Presidio,11,10.87
+Presidio,12,12.18
+Presidio,13,11.85
+Presidio,14,12.42
+Presidio,15,13.72
+Presidio,16,13.31
+Presidio,17,14.31
+Presidio,18,13.21
+Presidio,19,11.73
+Presidio,20,10.81
+Presidio,21,10.32
+Presidio,22,11.65
+Presidio,23,13.95
+Visitacion Valley,0,11.03
+Visitacion Valley,1,11.66
+Visitacion Valley,2,12.34
+Visitacion Valley,3,11.27
+Visitacion Valley,4,12.12
+Visitacion Valley,5,11.87
+Visitacion Valley,6,12.73
+Visitacion Valley,7,12.83
+Visitacion Valley,8,11.91
+Visitacion Valley,9,11.29
+Visitacion Valley,10,11.02
+Visitacion Valley,11,11.23
+Visitacion Valley,12,11.26
+Visitacion Valley,13,11.11
+Visitacion Valley,14,11.32
+Visitacion Valley,15,11.22
+Visitacion Valley,16,12.09
+Visitacion Valley,17,12.57
+Visitacion Valley,18,11.70
+Visitacion Valley,19,11.31
+Visitacion Valley,20,11.47
+Visitacion Valley,21,17.63
+Visitacion Valley,22,10.71
+Visitacion Valley,23,11.11
+Lakeshore,0,10.34
+Lakeshore,1,10.89
+Lakeshore,2,11.30
+Lakeshore,3,10.92
+Lakeshore,4,11.72
+Lakeshore,5,13.15
+Lakeshore,6,11.37
+Lakeshore,7,11.91
+Lakeshore,8,12.18
+Lakeshore,9,11.39
+Lakeshore,10,12.47
+Lakeshore,11,11.60
+Lakeshore,12,10.97
+Lakeshore,13,11.36
+Lakeshore,14,12.14
+Lakeshore,15,11.66
+Lakeshore,16,11.52
+Lakeshore,17,11.96
+Lakeshore,18,11.31
+Lakeshore,19,9.76
+Lakeshore,20,10.32
+Lakeshore,21,10.09
+Lakeshore,22,10.04
+Lakeshore,23,11.06
+McLaren Park,0,12.85
+McLaren Park,1,10.64
+McLaren Park,2,9.76
+McLaren Park,3,10.69
+McLaren Park,4,9.92
+McLaren Park,5,8.59
+McLaren Park,6,12.28
+McLaren Park,7,10.06
+McLaren Park,8,9.10
+McLaren Park,9,9.24
+McLaren Park,10,10.53
+McLaren Park,11,13.41
+McLaren Park,12,10.00
+McLaren Park,13,9.89
+McLaren Park,14,10.02
+McLaren Park,15,11.60
+McLaren Park,16,11.40
+McLaren Park,17,10.89
+McLaren Park,18,13.07
+McLaren Park,19,11.98
+McLaren Park,20,11.88
+McLaren Park,21,20.77
+McLaren Park,22,9.93
+McLaren Park,23,8.19
+Bernal Heights,0,10.02
+Bernal Heights,1,9.96
+Bernal Heights,2,11.32
+Bernal Heights,3,11.58
+Bernal Heights,4,12.22
+Bernal Heights,5,10.47
+Bernal Heights,6,10.61
+Bernal Heights,7,10.24
+Bernal Heights,8,10.57
+Bernal Heights,9,10.96
+Bernal Heights,10,9.41
+Bernal Heights,11,10.57
+Bernal Heights,12,9.65
+Bernal Heights,13,9.36
+Bernal Heights,14,22.63
+Bernal Heights,15,9.55
+Bernal Heights,16,10.23
+Bernal Heights,17,9.75
+Bernal Heights,18,9.80
+Bernal Heights,19,9.16
+Bernal Heights,20,9.62
+Bernal Heights,21,9.25
+Bernal Heights,22,9.10
+Bernal Heights,23,9.83
+Twin Peaks,0,9.86
+Twin Peaks,1,10.41
+Twin Peaks,2,10.35
+Twin Peaks,3,10.14
+Twin Peaks,4,11.02
+Twin Peaks,5,10.55
+Twin Peaks,6,11.20
+Twin Peaks,7,10.67
+Twin Peaks,8,10.93
+Twin Peaks,9,9.96
+Twin Peaks,10,10.88
+Twin Peaks,11,11.61
+Twin Peaks,12,10.10
+Twin Peaks,13,9.92
+Twin Peaks,14,10.13
+Twin Peaks,15,10.75
+Twin Peaks,16,11.35
+Twin Peaks,17,10.56
+Twin Peaks,18,12.86
+Twin Peaks,19,10.24
+Twin Peaks,20,10.24
+Twin Peaks,21,10.01
+Twin Peaks,22,9.52
+Twin Peaks,23,11.08
+Bayview Hunters Point,0,10.36
+Bayview Hunters Point,1,10.98
+Bayview Hunters Point,2,10.72
+Bayview Hunters Point,3,11.41
+Bayview Hunters Point,4,10.82
+Bayview Hunters Point,5,10.68
+Bayview Hunters Point,6,10.68
+Bayview Hunters Point,7,10.70
+Bayview Hunters Point,8,10.41
+Bayview Hunters Point,9,10.23
+Bayview Hunters Point,10,10.19
+Bayview Hunters Point,11,10.84
+Bayview Hunters Point,12,9.99
+Bayview Hunters Point,13,14.03
+Bayview Hunters Point,14,9.73
+Bayview Hunters Point,15,10.39
+Bayview Hunters Point,16,10.56
+Bayview Hunters Point,17,10.23
+Bayview Hunters Point,18,10.45
+Bayview Hunters Point,19,9.73
+Bayview Hunters Point,20,10.45
+Bayview Hunters Point,21,9.90
+Bayview Hunters Point,22,10.13
+Bayview Hunters Point,23,10.91
+Portola,0,11.01
+Portola,1,10.31
+Portola,2,9.87
+Portola,3,11.26
+Portola,4,11.19
+Portola,5,10.80
+Portola,6,10.85
+Portola,7,10.08
+Portola,8,10.52
+Portola,9,9.92
+Portola,10,10.60
+Portola,11,9.47
+Portola,12,9.95
+Portola,13,9.58
+Portola,14,10.39
+Portola,15,8.95
+Portola,16,10.78
+Portola,17,10.42
+Portola,18,10.45
+Portola,19,10.51
+Portola,20,10.33
+Portola,21,10.23
+Portola,22,10.10
+Portola,23,10.65
+Excelsior,0,10.23
+Excelsior,1,11.25
+Excelsior,2,10.31
+Excelsior,3,10.30
+Excelsior,4,10.82
+Excelsior,5,11.14
+Excelsior,6,10.57
+Excelsior,7,10.59
+Excelsior,8,10.23
+Excelsior,9,9.74
+Excelsior,10,10.75
+Excelsior,11,9.66
+Excelsior,12,10.36
+Excelsior,13,9.65
+Excelsior,14,10.09
+Excelsior,15,9.70
+Excelsior,16,11.05
+Excelsior,17,10.71
+Excelsior,18,10.05
+Excelsior,19,9.22
+Excelsior,20,9.79
+Excelsior,21,9.92
+Excelsior,22,9.95
+Excelsior,23,9.78
+Sunset/Parkside,0,9.65
+Sunset/Parkside,1,9.66
+Sunset/Parkside,2,10.04
+Sunset/Parkside,3,10.52
+Sunset/Parkside,4,10.80
+Sunset/Parkside,5,11.59
+Sunset/Parkside,6,11.62
+Sunset/Parkside,7,10.66
+Sunset/Parkside,8,10.06
+Sunset/Parkside,9,10.20
+Sunset/Parkside,10,10.13
+Sunset/Parkside,11,9.67
+Sunset/Parkside,12,9.69
+Sunset/Parkside,13,9.50
+Sunset/Parkside,14,10.36
+Sunset/Parkside,15,9.80
+Sunset/Parkside,16,10.66
+Sunset/Parkside,17,10.44
+Sunset/Parkside,18,10.15
+Sunset/Parkside,19,9.46
+Sunset/Parkside,20,10.13
+Sunset/Parkside,21,9.55
+Sunset/Parkside,22,9.68
+Sunset/Parkside,23,10.15
+Seacliff,0,9.35
+Seacliff,1,10.60
+Seacliff,2,9.67
+Seacliff,3,10.00
+Seacliff,4,12.23
+Seacliff,5,11.71
+Seacliff,6,10.94
+Seacliff,7,9.36
+Seacliff,8,10.13
+Seacliff,9,9.51
+Seacliff,10,10.11
+Seacliff,11,9.63
+Seacliff,12,9.46
+Seacliff,13,10.25
+Seacliff,14,10.12
+Seacliff,15,10.24
+Seacliff,16,10.27
+Seacliff,17,9.74
+Seacliff,18,10.57
+Seacliff,19,9.56
+Seacliff,20,9.36
+Seacliff,21,9.01
+Seacliff,22,9.29
+Seacliff,23,13.24
+Oceanview/Merced/Ingleside,0,9.38
+Oceanview/Merced/Ingleside,1,9.90
+Oceanview/Merced/Ingleside,2,11.09
+Oceanview/Merced/Ingleside,3,10.70
+Oceanview/Merced/Ingleside,4,10.51
+Oceanview/Merced/Ingleside,5,10.56
+Oceanview/Merced/Ingleside,6,10.57
+Oceanview/Merced/Ingleside,7,10.17
+Oceanview/Merced/Ingleside,8,12.55
+Oceanview/Merced/Ingleside,9,9.85
+Oceanview/Merced/Ingleside,10,10.12
+Oceanview/Merced/Ingleside,11,9.59
+Oceanview/Merced/Ingleside,12,9.24
+Oceanview/Merced/Ingleside,13,9.08
+Oceanview/Merced/Ingleside,14,9.67
+Oceanview/Merced/Ingleside,15,10.42
+Oceanview/Merced/Ingleside,16,9.79
+Oceanview/Merced/Ingleside,17,10.46
+Oceanview/Merced/Ingleside,18,9.96
+Oceanview/Merced/Ingleside,19,9.33
+Oceanview/Merced/Ingleside,20,9.71
+Oceanview/Merced/Ingleside,21,9.70
+Oceanview/Merced/Ingleside,22,10.56
+Oceanview/Merced/Ingleside,23,9.35
+Financial District/South Beach,0,9.52
+Financial District/South Beach,1,9.82
+Financial District/South Beach,2,10.27
+Financial District/South Beach,3,10.26
+Financial District/South Beach,4,9.83
+Financial District/South Beach,5,9.67
+Financial District/South Beach,6,10.08
+Financial District/South Beach,7,10.21
+Financial District/South Beach,8,10.99
+Financial District/South Beach,9,10.27
+Financial District/South Beach,10,9.79
+Financial District/South Beach,11,9.95
+Financial District/South Beach,12,9.73
+Financial District/South Beach,13,9.55
+Financial District/South Beach,14,10.08
+Financial District/South Beach,15,9.82
+Financial District/South Beach,16,10.28
+Financial District/South Beach,17,10.52
+Financial District/South Beach,18,10.04
+Financial District/South Beach,19,9.07
+Financial District/South Beach,20,9.29
+Financial District/South Beach,21,9.52
+Financial District/South Beach,22,10.79
+Financial District/South Beach,23,9.49
+Outer Richmond,0,8.95
+Outer Richmond,1,11.07
+Outer Richmond,2,9.87
+Outer Richmond,3,9.74
+Outer Richmond,4,11.18
+Outer Richmond,5,10.42
+Outer Richmond,6,11.23
+Outer Richmond,7,9.94
+Outer Richmond,8,10.07
+Outer Richmond,9,10.38
+Outer Richmond,10,10.01
+Outer Richmond,11,9.61
+Outer Richmond,12,9.17
+Outer Richmond,13,9.42
+Outer Richmond,14,10.04
+Outer Richmond,15,9.77
+Outer Richmond,16,10.27
+Outer Richmond,17,10.74
+Outer Richmond,18,9.57
+Outer Richmond,19,9.54
+Outer Richmond,20,9.05
+Outer Richmond,21,9.00
+Outer Richmond,22,9.87
+Outer Richmond,23,9.35
+North Beach,0,9.21
+North Beach,1,9.44
+North Beach,2,9.59
+North Beach,3,9.86
+North Beach,4,9.56
+North Beach,5,10.68
+North Beach,6,10.86
+North Beach,7,10.85
+North Beach,8,10.33
+North Beach,9,9.74
+North Beach,10,9.76
+North Beach,11,9.66
+North Beach,12,10.05
+North Beach,13,9.53
+North Beach,14,9.78
+North Beach,15,10.46
+North Beach,16,10.70
+North Beach,17,10.50
+North Beach,18,10.15
+North Beach,19,9.66
+North Beach,20,9.13
+North Beach,21,9.18
+North Beach,22,8.90
+North Beach,23,9.12
+Glen Park,0,9.93
+Glen Park,1,9.63
+Glen Park,2,9.56
+Glen Park,3,11.74
+Glen Park,4,10.61
+Glen Park,5,10.16
+Glen Park,6,10.35
+Glen Park,7,9.83
+Glen Park,8,11.88
+Glen Park,9,9.81
+Glen Park,10,9.50
+Glen Park,11,9.55
+Glen Park,12,9.14
+Glen Park,13,10.20
+Glen Park,14,9.81
+Glen Park,15,9.49
+Glen Park,16,9.76
+Glen Park,17,9.95
+Glen Park,18,9.20
+Glen Park,19,9.07
+Glen Park,20,9.61
+Glen Park,21,9.39
+Glen Park,22,9.85
+Glen Park,23,9.71
+Outer Mission,0,13.52
+Outer Mission,1,9.29
+Outer Mission,2,11.75
+Outer Mission,3,10.08
+Outer Mission,4,11.32
+Outer Mission,5,11.20
+Outer Mission,6,9.86
+Outer Mission,7,9.72
+Outer Mission,8,9.75
+Outer Mission,9,8.77
+Outer Mission,10,9.12
+Outer Mission,11,9.36
+Outer Mission,12,8.89
+Outer Mission,13,9.05
+Outer Mission,14,9.99
+Outer Mission,15,9.77
+Outer Mission,16,9.90
+Outer Mission,17,10.49
+Outer Mission,18,10.09
+Outer Mission,19,9.44
+Outer Mission,20,9.18
+Outer Mission,21,9.50
+Outer Mission,22,9.06
+Outer Mission,23,9.65
+Mission Bay,0,9.66
+Mission Bay,1,9.64
+Mission Bay,2,10.60
+Mission Bay,3,9.97
+Mission Bay,4,10.18
+Mission Bay,5,9.22
+Mission Bay,6,9.16
+Mission Bay,7,9.17
+Mission Bay,8,10.02
+Mission Bay,9,10.28
+Mission Bay,10,10.15
+Mission Bay,11,9.82
+Mission Bay,12,9.07
+Mission Bay,13,9.88
+Mission Bay,14,9.70
+Mission Bay,15,10.07
+Mission Bay,16,10.87
+Mission Bay,17,9.80
+Mission Bay,18,9.14
+Mission Bay,19,9.47
+Mission Bay,20,8.76
+Mission Bay,21,9.25
+Mission Bay,22,9.46
+Mission Bay,23,9.37
+Golden Gate Park,0,9.41
+Golden Gate Park,1,8.41
+Golden Gate Park,2,14.55
+Golden Gate Park,3,9.18
+Golden Gate Park,4,8.72
+Golden Gate Park,5,12.61
+Golden Gate Park,6,11.20
+Golden Gate Park,7,10.06
+Golden Gate Park,8,10.72
+Golden Gate Park,9,9.39
+Golden Gate Park,10,9.08
+Golden Gate Park,11,8.40
+Golden Gate Park,12,9.68
+Golden Gate Park,13,9.27
+Golden Gate Park,14,10.30
+Golden Gate Park,15,10.20
+Golden Gate Park,16,9.28
+Golden Gate Park,17,10.11
+Golden Gate Park,18,10.38
+Golden Gate Park,19,8.61
+Golden Gate Park,20,8.46
+Golden Gate Park,21,9.42
+Golden Gate Park,22,9.24
+Golden Gate Park,23,8.11
+South of Market,0,8.81
+South of Market,1,9.12
+South of Market,2,9.49
+South of Market,3,9.41
+South of Market,4,9.66
+South of Market,5,9.50
+South of Market,6,9.90
+South of Market,7,10.04
+South of Market,8,10.34
+South of Market,9,10.38
+South of Market,10,9.85
+South of Market,11,9.76
+South of Market,12,9.38
+South of Market,13,9.83
+South of Market,14,9.77
+South of Market,15,9.89
+South of Market,16,10.07
+South of Market,17,10.18
+South of Market,18,9.73
+South of Market,19,8.87
+South of Market,20,9.02
+South of Market,21,
+South of Market,22,9.10
+South of Market,23,8.88
+West of Twin Peaks,0,9.24
+West of Twin Peaks,1,9.24
+West of Twin Peaks,2,9.69
+West of Twin Peaks,3,9.67
+West of Twin Peaks,4,11.94
+West of Twin Peaks,5,10.43
+West of Twin Peaks,6,10.24
+West of Twin Peaks,7,9.94
+West of Twin Peaks,8,9.28
+West of Twin Peaks,9,9.71
+West of Twin Peaks,10,9.41
+West of Twin Peaks,11,9.18
+West of Twin Peaks,12,8.94
+West of Twin Peaks,13,8.86
+West of Twin Peaks,14,8.99
+West of Twin Peaks,15,9.43
+West of Twin Peaks,16,9.37
+West of Twin Peaks,17,9.46
+West of Twin Peaks,18,9.59
+West of Twin Peaks,19,9.25
+West of Twin Peaks,20,9.31
+West of Twin Peaks,21,9.44
+West of Twin Peaks,22,11.72
+West of Twin Peaks,23,9.66
+Chinatown,0,8.87
+Chinatown,1,8.75
+Chinatown,2,9.60
+Chinatown,3,8.93
+Chinatown,4,9.18
+Chinatown,5,10.14
+Chinatown,6,8.74
+Chinatown,7,15.92
+Chinatown,8,9.79
+Chinatown,9,10.10
+Chinatown,10,9.22
+Chinatown,11,9.46
+Chinatown,12,9.08
+Chinatown,13,8.94
+Chinatown,14,9.94
+Chinatown,15,8.82
+Chinatown,16,9.09
+Chinatown,17,9.26
+Chinatown,18,8.57
+Chinatown,19,11.94
+Chinatown,20,8.65
+Chinatown,21,8.12
+Chinatown,22,8.21
+Chinatown,23,8.31
+Potrero Hill,0,9.26
+Potrero Hill,1,9.25
+Potrero Hill,2,9.97
+Potrero Hill,3,10.11
+Potrero Hill,4,9.56
+Potrero Hill,5,10.02
+Potrero Hill,6,9.74
+Potrero Hill,7,9.87
+Potrero Hill,8,9.63
+Potrero Hill,9,9.51
+Potrero Hill,10,9.30
+Potrero Hill,11,9.28
+Potrero Hill,12,8.90
+Potrero Hill,13,9.95
+Potrero Hill,14,10.17
+Potrero Hill,15,9.32
+Potrero Hill,16,9.23
+Potrero Hill,17,9.06
+Potrero Hill,18,8.56
+Potrero Hill,19,8.48
+Potrero Hill,20,8.78
+Potrero Hill,21,8.61
+Potrero Hill,22,9.01
+Potrero Hill,23,9.11
+Lone Mountain/USF,0,8.93
+Lone Mountain/USF,1,9.08
+Lone Mountain/USF,2,9.19
+Lone Mountain/USF,3,9.63
+Lone Mountain/USF,4,9.53
+Lone Mountain/USF,5,10.44
+Lone Mountain/USF,6,9.67
+Lone Mountain/USF,7,8.90
+Lone Mountain/USF,8,8.77
+Lone Mountain/USF,9,9.00
+Lone Mountain/USF,10,8.98
+Lone Mountain/USF,11,8.88
+Lone Mountain/USF,12,8.46
+Lone Mountain/USF,13,10.91
+Lone Mountain/USF,14,9.70
+Lone Mountain/USF,15,9.45
+Lone Mountain/USF,16,9.21
+Lone Mountain/USF,17,8.93
+Lone Mountain/USF,18,8.78
+Lone Mountain/USF,19,9.10
+Lone Mountain/USF,20,11.37
+Lone Mountain/USF,21,8.45
+Lone Mountain/USF,22,8.29
+Lone Mountain/USF,23,8.41
+Japantown,0,8.39
+Japantown,1,8.55
+Japantown,2,8.64
+Japantown,3,9.46
+Japantown,4,8.72
+Japantown,5,9.16
+Japantown,6,10.32
+Japantown,7,10.21
+Japantown,8,9.37
+Japantown,9,9.30
+Japantown,10,9.16
+Japantown,11,9.39
+Japantown,12,9.16
+Japantown,13,9.53
+Japantown,14,9.39
+Japantown,15,9.67
+Japantown,16,9.41
+Japantown,17,9.64
+Japantown,18,8.62
+Japantown,19,8.71
+Japantown,20,8.52
+Japantown,21,8.28
+Japantown,22,8.82
+Japantown,23,8.56
+Marina,0,8.88
+Marina,1,9.83
+Marina,2,9.99
+Marina,3,9.36
+Marina,4,9.45
+Marina,5,9.63
+Marina,6,10.78
+Marina,7,10.64
+Marina,8,9.68
+Marina,9,9.44
+Marina,10,8.62
+Marina,11,8.74
+Marina,12,8.86
+Marina,13,8.86
+Marina,14,8.80
+Marina,15,8.82
+Marina,16,10.02
+Marina,17,9.40
+Marina,18,9.44
+Marina,19,8.54
+Marina,20,8.34
+Marina,21,8.73
+Marina,22,8.58
+Marina,23,9.27
+Inner Sunset,0,8.73
+Inner Sunset,1,8.41
+Inner Sunset,2,8.88
+Inner Sunset,3,9.92
+Inner Sunset,4,9.74
+Inner Sunset,5,10.17
+Inner Sunset,6,10.21
+Inner Sunset,7,9.78
+Inner Sunset,8,9.53
+Inner Sunset,9,9.34
+Inner Sunset,10,9.01
+Inner Sunset,11,8.84
+Inner Sunset,12,8.93
+Inner Sunset,13,8.76
+Inner Sunset,14,8.74
+Inner Sunset,15,8.55
+Inner Sunset,16,8.82
+Inner Sunset,17,9.63
+Inner Sunset,18,8.90
+Inner Sunset,19,8.48
+Inner Sunset,20,8.23
+Inner Sunset,21,11.28
+Inner Sunset,22,9.27
+Inner Sunset,23,9.18
+Tenderloin,0,8.20
+Tenderloin,1,8.20
+Tenderloin,2,8.23
+Tenderloin,3,8.44
+Tenderloin,4,8.74
+Tenderloin,5,8.92
+Tenderloin,6,9.46
+Tenderloin,7,9.48
+Tenderloin,8,9.73
+Tenderloin,9,9.77
+Tenderloin,10,9.46
+Tenderloin,11,9.36
+Tenderloin,12,9.34
+Tenderloin,13,9.06
+Tenderloin,14,9.16
+Tenderloin,15,9.19
+Tenderloin,16,9.45
+Tenderloin,17,9.55
+Tenderloin,18,9.03
+Tenderloin,19,8.80
+Tenderloin,20,8.20
+Tenderloin,21,8.49
+Tenderloin,22,8.12
+Tenderloin,23,8.20
+Russian Hill,0,8.75
+Russian Hill,1,8.61
+Russian Hill,2,8.82
+Russian Hill,3,10.10
+Russian Hill,4,10.82
+Russian Hill,5,11.33
+Russian Hill,6,9.61
+Russian Hill,7,10.25
+Russian Hill,8,9.69
+Russian Hill,9,9.25
+Russian Hill,10,9.34
+Russian Hill,11,8.92
+Russian Hill,12,8.98
+Russian Hill,13,8.48
+Russian Hill,14,8.70
+Russian Hill,15,8.63
+Russian Hill,16,8.54
+Russian Hill,17,9.62
+Russian Hill,18,8.73
+Russian Hill,19,9.18
+Russian Hill,20,8.26
+Russian Hill,21,7.99
+Russian Hill,22,8.19
+Russian Hill,23,8.87
+Presidio Heights,0,10.86
+Presidio Heights,1,10.41
+Presidio Heights,2,9.54
+Presidio Heights,3,9.29
+Presidio Heights,4,10.63
+Presidio Heights,5,9.56
+Presidio Heights,6,9.09
+Presidio Heights,7,8.88
+Presidio Heights,8,9.05
+Presidio Heights,9,9.30
+Presidio Heights,10,9.03
+Presidio Heights,11,9.05
+Presidio Heights,12,8.48
+Presidio Heights,13,8.67
+Presidio Heights,14,9.20
+Presidio Heights,15,8.61
+Presidio Heights,16,9.19
+Presidio Heights,17,8.80
+Presidio Heights,18,8.27
+Presidio Heights,19,8.40
+Presidio Heights,20,7.92
+Presidio Heights,21,8.14
+Presidio Heights,22,8.38
+Presidio Heights,23,9.08
+Mission,0,8.41
+Mission,1,8.82
+Mission,2,8.91
+Mission,3,9.03
+Mission,4,9.21
+Mission,5,9.32
+Mission,6,8.73
+Mission,7,11.42
+Mission,8,9.92
+Mission,9,8.96
+Mission,10,8.73
+Mission,11,8.83
+Mission,12,8.45
+Mission,13,8.61
+Mission,14,8.55
+Mission,15,8.94
+Mission,16,8.92
+Mission,17,8.85
+Mission,18,10.37
+Mission,19,8.25
+Mission,20,8.12
+Mission,21,8.17
+Mission,22,8.20
+Mission,23,9.37
+Castro/Upper Market,0,9.90
+Castro/Upper Market,1,8.27
+Castro/Upper Market,2,9.08
+Castro/Upper Market,3,8.97
+Castro/Upper Market,4,14.99
+Castro/Upper Market,5,8.70
+Castro/Upper Market,6,9.13
+Castro/Upper Market,7,9.27
+Castro/Upper Market,8,8.70
+Castro/Upper Market,9,8.76
+Castro/Upper Market,10,9.36
+Castro/Upper Market,11,8.19
+Castro/Upper Market,12,8.39
+Castro/Upper Market,13,8.00
+Castro/Upper Market,14,8.41
+Castro/Upper Market,15,8.38
+Castro/Upper Market,16,9.00
+Castro/Upper Market,17,8.76
+Castro/Upper Market,18,8.55
+Castro/Upper Market,19,8.26
+Castro/Upper Market,20,8.14
+Castro/Upper Market,21,8.31
+Castro/Upper Market,22,8.17
+Castro/Upper Market,23,9.72
+Inner Richmond,0,8.40
+Inner Richmond,1,8.34
+Inner Richmond,2,8.83
+Inner Richmond,3,8.56
+Inner Richmond,4,9.12
+Inner Richmond,5,10.59
+Inner Richmond,6,10.75
+Inner Richmond,7,8.64
+Inner Richmond,8,9.30
+Inner Richmond,9,9.52
+Inner Richmond,10,8.59
+Inner Richmond,11,8.43
+Inner Richmond,12,8.21
+Inner Richmond,13,9.16
+Inner Richmond,14,8.62
+Inner Richmond,15,8.71
+Inner Richmond,16,9.39
+Inner Richmond,17,8.58
+Inner Richmond,18,8.97
+Inner Richmond,19,7.71
+Inner Richmond,20,7.97
+Inner Richmond,21,8.50
+Inner Richmond,22,8.00
+Inner Richmond,23,10.83
+Western Addition,0,8.42
+Western Addition,1,8.43
+Western Addition,2,8.84
+Western Addition,3,8.51
+Western Addition,4,8.62
+Western Addition,5,8.95
+Western Addition,6,9.83
+Western Addition,7,9.10
+Western Addition,8,9.49
+Western Addition,9,9.12
+Western Addition,10,9.02
+Western Addition,11,8.71
+Western Addition,12,8.87
+Western Addition,13,9.02
+Western Addition,14,8.74
+Western Addition,15,9.12
+Western Addition,16,9.06
+Western Addition,17,9.32
+Western Addition,18,8.58
+Western Addition,19,8.29
+Western Addition,20,7.98
+Western Addition,21,7.93
+Western Addition,22,8.29
+Western Addition,23,8.49
+Noe Valley,0,8.58
+Noe Valley,1,8.93
+Noe Valley,2,8.91
+Noe Valley,3,8.99
+Noe Valley,4,9.60
+Noe Valley,5,10.28
+Noe Valley,6,9.27
+Noe Valley,7,8.81
+Noe Valley,8,10.66
+Noe Valley,9,9.04
+Noe Valley,10,8.50
+Noe Valley,11,7.97
+Noe Valley,12,8.91
+Noe Valley,13,8.96
+Noe Valley,14,8.58
+Noe Valley,15,8.39
+Noe Valley,16,8.46
+Noe Valley,17,8.69
+Noe Valley,18,8.25
+Noe Valley,19,8.62
+Noe Valley,20,8.42
+Noe Valley,21,7.97
+Noe Valley,22,8.12
+Noe Valley,23,9.48
+Hayes Valley,0,8.28
+Hayes Valley,1,8.32
+Hayes Valley,2,8.56
+Hayes Valley,3,8.39
+Hayes Valley,4,8.71
+Hayes Valley,5,8.64
+Hayes Valley,6,9.18
+Hayes Valley,7,9.20
+Hayes Valley,8,9.22
+Hayes Valley,9,9.22
+Hayes Valley,10,8.73
+Hayes Valley,11,10.06
+Hayes Valley,12,8.68
+Hayes Valley,13,8.15
+Hayes Valley,14,8.40
+Hayes Valley,15,8.59
+Hayes Valley,16,8.88
+Hayes Valley,17,9.32
+Hayes Valley,18,8.68
+Hayes Valley,19,8.40
+Hayes Valley,20,7.97
+Hayes Valley,21,8.25
+Hayes Valley,22,7.97
+Hayes Valley,23,7.97
+Haight Ashbury,0,8.09
+Haight Ashbury,1,8.16
+Haight Ashbury,2,8.58
+Haight Ashbury,3,8.98
+Haight Ashbury,4,9.55
+Haight Ashbury,5,9.14
+Haight Ashbury,6,9.65
+Haight Ashbury,7,9.26
+Haight Ashbury,8,9.82
+Haight Ashbury,9,8.81
+Haight Ashbury,10,7.87
+Haight Ashbury,11,7.96
+Haight Ashbury,12,8.28
+Haight Ashbury,13,8.11
+Haight Ashbury,14,8.26
+Haight Ashbury,15,8.81
+Haight Ashbury,16,8.55
+Haight Ashbury,17,9.45
+Haight Ashbury,18,8.67
+Haight Ashbury,19,8.38
+Haight Ashbury,20,8.96
+Haight Ashbury,21,7.94
+Haight Ashbury,22,7.78
+Haight Ashbury,23,8.45
+Pacific Heights,0,8.01
+Pacific Heights,1,8.14
+Pacific Heights,2,8.48
+Pacific Heights,3,8.70
+Pacific Heights,4,8.25
+Pacific Heights,5,8.54
+Pacific Heights,6,9.58
+Pacific Heights,7,8.93
+Pacific Heights,8,8.85
+Pacific Heights,9,8.60
+Pacific Heights,10,8.59
+Pacific Heights,11,8.45
+Pacific Heights,12,8.20
+Pacific Heights,13,8.22
+Pacific Heights,14,8.07
+Pacific Heights,15,8.46
+Pacific Heights,16,7.81
+Pacific Heights,17,8.30
+Pacific Heights,18,8.10
+Pacific Heights,19,7.38
+Pacific Heights,20,7.38
+Pacific Heights,21,7.77
+Pacific Heights,22,7.71
+Pacific Heights,23,7.96
+Nob Hill,0,7.35
+Nob Hill,1,7.50
+Nob Hill,2,7.55
+Nob Hill,3,8.05
+Nob Hill,4,8.91
+Nob Hill,5,8.41
+Nob Hill,6,8.85
+Nob Hill,7,8.90
+Nob Hill,8,9.16
+Nob Hill,9,8.91
+Nob Hill,10,8.72
+Nob Hill,11,8.28
+Nob Hill,12,8.14
+Nob Hill,13,8.12
+Nob Hill,14,8.40
+Nob Hill,15,8.55
+Nob Hill,16,8.60
+Nob Hill,17,8.87
+Nob Hill,18,8.27
+Nob Hill,19,7.98
+Nob Hill,20,7.15
+Nob Hill,21,7.63
+Nob Hill,22,7.35
+Nob Hill,23,7.40

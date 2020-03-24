@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- TODO: Change title -->
+    <title>Chinchillas</title>
+
+    <!-- Load Bulma from CDN (consider saving it to repository instead) -->
+    <!-- https://bulma.io/ -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+
+    <!-- Load Font Awesome 5 (free) icons -->
+    <script defer src="https://use.fontawesome.com/releases/v5.10.2/js/all.js"></script>
+  </head>
+
+  <body>
+
+  <!-- Page header -->
+  <!-- https://bulma.io/documentation/layout/hero/ -->
+  <section class="hero is-primary is-bold">
+    <div class="hero-body">
+      <div class="container">
+        <!-- TODO: Change title -->
+        <h1 class="title">Midterm Project</h1>
+        <!-- TODO: Change subtitle -->
+        <h2 class="subtitle">By: Ned Azar, Enrique Bascur, and Jaden Hamid </h2>
+      </div>
+    </div>
+  </section>
+  <!-- End page header -->
+
+  <!-- Page navigation -->
+  <!-- https://bulma.io/documentation/components/navbar/ -->
+  <nav class="navbar is-light" role="navigation" aria-label="main navigation">
+    <div class="container">
+      <div class="navbar-brand">
+        <!-- TODO: Change link to repository homepage if needed -->
+        <!-- TODO: Change which navbar-item is-active if needed -->
+        <a class="navbar-item is-active" href="index.html">
+          <span class="icon"><i class="fas fa-home"></i></span>
+          <span>Home</span>
+        </a>
+
+        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="main-menu">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+
+      <div id="main-menu" class="navbar-menu has-text-weight-medium">
+        <!-- Left navbar items -->
+        <div class="navbar-start">
+          <a class="navbar-item" href="data.html" title="Data">
+            <span class="icon"><i class="fas fa-table"></i></span>
+            <span>Data</span>
+          </a>
+
+          <!-- TODO: Modify or remove dropdown -->
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link">
+              <span class="icon"><i class="fas fa-fire-alt"></i></span>
+
+              Visualizations
+            </a>
+
+            <div class="navbar-dropdown">
+              <a href="ned.html" class="navbar-item">
+                <span class="icon"><i class="fas fa-chart-line"></i></span>
+                <span>Ned's Chart</span>
+              </a>
+              <a href="enrique.html" class="navbar-item">
+                <span class="icon"><i class="fas fa-chart-area"></i></span>
+                <span>Enrique's Chart</span>
+              </a>
+
+              <a href="jaden.html" class="navbar-item">
+                <span class="icon"><i class="fas fa-chart-bar"></i></span>
+                <span>Jaden's Chart</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right navbar items -->
+        <div class="navbar-end">
+          <!-- TODO: Update as needed -->
+          <a class="navbar-item" href="" title="About">
+            <span class="icon"><i class="fas fa-tasks"></i></span>
+            <span>Grade</span>
+          </a>
+
+          <a class="navbar-item" href="about.html" title="About">
+            <span class="icon"><i class="fas fa-info-circle"></i></span>
+            <span>About</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- End page navigation -->
+
+  <section class="section">
+    <div class="container">
+      <!-- Begin page content -->
+      <div class="content">
+
+  <h1>Ned</h1>
+
+  <h2>Personal Wrangling</h2>
+  <p>To create this prototype, I used Excel (Numbers on Mac) to calculate an average for each call rype for each year. I then exported that csv to use it in RAWGraphics. There might have been minimal manual alterations to the csv :)</p>
+
+  <h2>Prototype in RAWGraphics</h2>
+  <h3>Change in average response times of the SFFD for various call types, 2015-2019.</h3>
+  <p>Alarms, Electrical Hazard, Gas Leaks, Outside Fires, Structural Fires, Service Calls, Medical (GOING TO NEED HELP ALLIGNING THESE)</p>
+
+
+
+
+<svg width="960" height="500" xmlns="http://www.w3.org/2000/svg"><g width="960" height="500" style="font-size: 10px; font-family: Arial, Helvetica;"><g transform="translate(40, 30)"><g class="background"><path d="M0,460L146.66666666666666,460L293.3333333333333,460L440,460L586.6666666666666,460L733.3333333333333,460L880,460" style="fill: none; stroke: rgb(191, 105, 105); stroke-opacity: 0; stroke-width: 0"></path><path d="M0,322L146.66666666666666,322L293.3333333333333,303.6L440,294.4L586.6666666666666,266.80000000000007L733.3333333333333,248.4L880,73.59999999999997" style="fill: none; stroke: red; stroke-opacity: 1; stroke-width: 2"></path><path d="M0,322L146.66666666666666,322L293.3333333333333,294.4L440,303.6L586.6666666666666,276L733.3333333333333,248.4L880,73.59999999999997" style="fill: none; stroke: blue;  stroke-opacity: 1; stroke-width: 2"></path><path d="M0,312.8L146.66666666666666,294.4L293.3333333333333,285.19999999999993L440,294.4L586.6666666666666,239.19999999999996L733.3333333333333,248.4L880,92" style="fill: none; stroke: green; stroke-opacity: 1; stroke-width: 2"></path><path d="M0,312.8L146.66666666666666,312.8L293.3333333333333,276L440,294.4L586.6666666666666,266.80000000000007L733.3333333333333,230L880,64.40000000000003" style="fill: none; stroke: black;  stroke-opacity: 1; stroke-width: 2"></path><path d="M0,312.8L146.66666666666666,312.8L293.3333333333333,285.19999999999993L440,266.80000000000007L586.6666666666666,276L733.3333333333333,220.80000000000004L880,128.8" style="fill: none; stroke: pink;  stroke-opacity: 1; stroke-width: 2"></path><path d="M0,0L146.66666666666666,0L293.3333333333333,0L440,0L586.6666666666666,0L733.3333333333333,0L880,0" style="fill: none; stroke: rgb(191, 105, 179);  stroke-opacity: 0; stroke-width: 0"></path></g><g class="dim" transform="translate(0)"><g class="axis" fill="none" font-size="10" font-family="sans-serif" text-anchor="end"><path class="domain" stroke="#000" d="M-6,460.5H0.5V0.5H-6" style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: crispedges;"></path><g class="tick" opacity="1" transform="translate(0,460.5)"><line stroke="#000" x2="-6" style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: crispedges;"></line><text fill="#000" x="-9" dy="0.32em" style="font-size: 10px; font-family: Arial, Helvetica;">3.0</text></g><g class="tick" opacity="1" transform="translate(0,414.5)"><line stroke="#000" x2="-6" style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: crispedges;"></line><text fill="#000" x="-9" dy="0.32em" style="font-size: 10px; font-family: Arial, Helvetica;">3.5</text></g><g class="tick" opacity="1" transform="translate(0,368.5)"><line stroke="#000" x2="-6" style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: crispedges;"></line><text fill="#000" x="-9" dy="0.32em" style="font-size: 10px; font-family: Arial, Helvetica;">4.0</text></g><g class="tick" opacity="1" transform="translate(0,322.5)"><line stroke="#000" x2="-6" style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: crispedges;"></line><text fill="#000" x="-9" dy="0.32em" style="font-size: 10px; font-family: Arial, Helvetica;">4.5</text></g><g class="tick" opacity="1" transform="translate(0,276.5)"><line stroke="#000" x2="-6" style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: crispedges;"></line><text fill="#000" x="-9" dy="0.32em" style="font-size: 10px; font-family: Arial, Helvetica;">5.0</text></g><g class="tick" opacity="1" transform="translate(0,230.5)"><line stroke="#000" x2="-6" style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: crispedges;"></line><text fill="#000" x="-9" dy="0.32em" style="font-size: 10px; font-family: Arial, Helvetica;">5.5</text></g><g class="tick" opacity="1" transform="translate(0,184.5)"><line stroke="#000" x2="-6" style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: crispedges;"></line><text fill="#000" x="-9" dy="0.32em" style="font-size: 10px; font-family: Arial, Helvetica;">6.0</text></g><g class="tick" opacity="1" transform="translate(0,138.5)"><line stroke="#000" x2="-6" style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: crispedges;"></line><text fill="#000" x="-9" dy="0.32em" style="font-size: 10px; font-family: Arial, Helvetica;">6.5</text></g><g class="tick" opacity="1" transform="translate(0,92.5)"><line stroke="#000" x2="-6" style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: crispedges;"></line><text fill="#000" x="-9" dy="0.32em" style="font-size: 10px; font-family: Arial, Helvetica;">7.0</text></g><g class="tick" opacity="1" transform="translate(0,46.5)"><line stroke="#000" x2="-6" style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: crispedges;"></line><text fill="#000" x="-9" dy="0.32em" style="font-size: 10px; font-family: Arial, Helvetica;">7.5</text></g><g class="tick" opacity="1" transform="translate(0,0.5)"><line stroke="#000" x2="-6" style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: crispedges;"></line><text fill="#000" x="-9" dy="0.32em" style="font-size: 10px; font-family: Arial, Helvetica;">8.0</text></g><text text-anchor="middle" y="-9" style="font-size: 10px; font-family: Arial, Helvetica;">alarms</text></g></g><g class="dim" transform="translate(146.66666666666666)"><g class="axis" fill="none" font-size="10" font-family="sans-serif" text-anchor="end"><path class="domain" stroke="#000" d="M-6,460.5H0.5V0.5H-6" style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: crispedges;"></path><g class="tick" opacity="1" transform="translate(0,460.5)"><line stroke="#000" x2="-6" style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: crispedges;"></line><text fill="#000" x="-9" dy="0.32em" style="font-size: 10px; font-family: Arial, Helvetica;">3.0</text></g><g class="tick" opacity="1" transform="translate(0,414.5)"><line stroke="#000" x2="-6" style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: crispedges;"></line><text fill="#000" x="-9" dy="0.32em" style="font-size: 10px; font-family: Arial, Helvetica;">3.5</text></g><g class="tick" opacity="1" transform="translate(0,368.5)"><line stroke="#000" x2="-6" style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: crispedges;"></line><text fill="#000" x="-9" dy="0.32em" style="font-size: 10px; font-family: Arial, Helvetica;">4.0</text></g><g class="tick" opacity="1" transform="translate(0,322.5)"><line stroke="#000" x2="-6" style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: crispedges;"></line><text fill="#000" x="-9" dy="0.32em" style="font-size: 10px; font-family: Arial, Helvetica;">4.5</text></g><g class="tick" opacity="1" transform="translate(0,276.5)"><line stroke="#000" x2="-6" style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: crispedges;"></line><text fill="#000" x="-9" dy="0.32em" style="font-size: 10px; font-family: Arial, Helvetica;">5.0</text></g><g class="tick" opacity="1" transform="translate(0,230.5)"><line stroke="#000" x2="-6" style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: crispedges;"></line><text fill="#000" x="-9" dy="0.32em" style="font-size: 10px; font-family: Arial, Helvetica;">5.5</text></g><g class="tick" opacity="1" transform="translate(0,184.5)"><line stroke="#000" x2="-6" style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: crispedges;"></line><text fill="#000" x="-9" dy="0.32em" style="font-size: 10px; font-family: Arial, Helvetica;">6.0</text></g><g class="tick" opacity="1" transform="translate(0,138.5)"><line stroke="#000" x2="-6" style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: crispedges;"></line><text fill="#000" x="-9" dy="0.32em" style="font-size: 10px; font-family: Arial, Helvetica;">6.5</text></g><g class="tick" opacity="1" transform="translate(0,92.5)"><line stroke="#000" x2="-6" style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: crispedges;"></line><text fill="#000" x="-9" dy="0.32em" style="font-size: 10px; font-family: Arial, Helvetica;">7.0</text></g><g class="tick" opacity="1" transform="translate(0,46.5)"><line stroke="#000" x2="-6" style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: crispedges;"></line><text fill="#000" x="-9" dy="0.32em" style="font-size: 10px; font-family: Arial, Helvetica;">7.5</text></g><g class="tick" opacity="1" transform="translate(0,0.5)"><line stroke="#000" x2="-6" style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: crispedges;"></line><text fill="#000" x="-9" dy="0.32em" style="font-size: 10px; font-family: Arial, Helvetica;">8.0</text></g><text text-anchor="middle" y="-9" style="font-size: 10px; font-family: Arial, Helvetica;">elecHazard</text></g></g><g class="dim" transform="translate(293.3333333333333)"><g class="axis" fill="none" font-size="10" font-family="sans-serif" text-anchor="end"><path class="domain" stroke="#000" d="M-6,460.5H0.5V0.5H-6" style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: crispedges;"></path><g class="tick" opacity="1" transform="translate(0,460.5)"><line stroke="#000" x2="-6" style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: crispedges;"></line><text fill="#000" x="-9" dy="0.32em" style="font-size: 10px; font-family: Arial, Helvetica;">3.0</text></g><g class="tick" opacity="1" transform="translate(0,414.5)"><line stroke="#000" x2="-6" style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: crispedges;"></line><text fill="#000" x="-9" dy="0.32em" style="font-size: 10px; font-family: Arial, Helvetica;">3.5</text></g><g class="tick" opacity="1" transform="translate(0,368.5)"><line stroke="#000" x2="-6" style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: crispedges;"></line><text fill="#000" x="-9" dy="0.32em" style="font-size: 10px; font-family: Arial, Helvetica;">4.0</text></g><g class="tick" opacity="1" transform="translate(0,322.5)"><line stroke="#000" x2="-6" style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: crispedges;"></line><text fill="#000" x="-9" dy="0.32em" style="font-size: 10px; font-family: Arial, Helvetica;">4.5</text></g><g class="tick" opacity="1" transform="translate(0,276.5)"><line stroke="#000" x2="-6" style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: crispedges;"></line><text fill="#000" x="-9" dy="0.32em" style="font-size: 10px; font-family: Arial, Helvetica;">5.0</text></g><g class="tick" opacity="1" transform="translate(0,230.5)"><line stroke="#000" x2="-6" style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: crispedges;"></line><text fill="#000" x="-9" dy="0.32em" style="font-size: 10px; font-family: Arial, Helvetica;">5.5</text></g><g class="tick" opacity="1" transform="translate(0,184.5)"><line stroke="#000" x2="-6" style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: crispedges;"></line><text fill="#000" x="-9" dy="0.32em" style="font-size: 10px; font-family: Arial, Helvetica;">6.0</text></g><g class="tick" opacity="1" transform="translate(0,138.5)"><line stroke="#000" x2="-6" style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: crispedges;"></line><text fill="#000" x="-9" dy="0.32em" style="font-size: 10px; font-family: Arial, Helvetica;">6.5</text></g><g class="tick" opacity="1" transform="translate(0,92.5)"><line stroke="#000" x2="-6" style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: crispedges;"></line><text fill="#000" x="-9" dy="0.32em" style="font-size: 10px; font-family: Arial, Helvetica;">7.0</text></g><g class="tick" opacity="1" transform="translate(0,46.5)"><line stroke="#000" x2="-6" style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: crispedges;"></line><text fill="#000" x="-9" dy="0.32em" style="font-size: 10px; font-family: Arial, Helvetica;">7.5</text></g><g class="tick" opacity="1" transform="translate(0,0.5)"><line stroke="#000" x2="-6" style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: crispedges;"></line><text fill="#000" x="-9" dy="0.32em" style="font-size: 10px; font-family: Arial, Helvetica;">8.0</text></g><text text-anchor="middle" y="-9" style="font-size: 10px; font-family: Arial, Helvetica;">gasLeaks</text></g></g><g class="dim" transform="translate(440)"><g class="axis" fill="none" font-size="10" font-family="sans-serif" text-anchor="end"><path class="domain" stroke="#000" d="M-6,460.5H0.5V0.5H-6" style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: crispedges;"></path><g class="tick" opacity="1" transform="translate(0,460.5)"><line stroke="#000" x2="-6" style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: crispedges;"></line><text fill="#000" x="-9" dy="0.32em" style="font-size: 10px; font-family: Arial, Helvetica;">3.0</text></g><g class="tick" opacity="1" transform="translate(0,414.5)"><line stroke="#000" x2="-6" style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: crispedges;"></line><text fill="#000" x="-9" dy="0.32em" style="font-size: 10px; font-family: Arial, Helvetica;">3.5</text></g><g class="tick" opacity="1" transform="translate(0,368.5)"><line stroke="#000" x2="-6" style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: crispedges;"></line><text fill="#000" x="-9" dy="0.32em" style="font-size: 10px; font-family: Arial, Helvetica;">4.0</text></g><g class="tick" opacity="1" transform="translate(0,322.5)"><line stroke="#000" x2="-6" style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: crispedges;"></line><text fill="#000" x="-9" dy="0.32em" style="font-size: 10px; font-family: Arial, Helvetica;">4.5</text></g><g class="tick" opacity="1" transform="translate(0,276.5)"><line stroke="#000" x2="-6" style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: crispedges;"></line><text fill="#000" x="-9" dy="0.32em" style="font-size: 10px; font-family: Arial, Helvetica;">5.0</text></g><g class="tick" opacity="1" transform="translate(0,230.5)"><line stroke="#000" x2="-6" style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: crispedges;"></line><text fill="#000" x="-9" dy="0.32em" style="font-size: 10px; font-family: Arial, Helvetica;">5.5</text></g><g class="tick" opacity="1" transform="translate(0,184.5)"><line stroke="#000" x2="-6" style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: crispedges;"></line><text fill="#000" x="-9" dy="0.32em" style="font-size: 10px; font-family: Arial, Helvetica;">6.0</text></g><g class="tick" opacity="1" transform="translate(0,138.5)"><line stroke="#000" x2="-6" style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: crispedges;"></line><text fill="#000" x="-9" dy="0.32em" style="font-size: 10px; font-family: Arial, Helvetica;">6.5</text></g><g class="tick" opacity="1" transform="translate(0,92.5)"><line stroke="#000" x2="-6" style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: crispedges;"></line><text fill="#000" x="-9" dy="0.32em" style="font-size: 10px; font-family: Arial, Helvetica;">7.0</text></g><g class="tick" opacity="1" transform="translate(0,46.5)"><line stroke="#000" x2="-6" style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: crispedges;"></line><text fill="#000" x="-9" dy="0.32em" style="font-size: 10px; font-family: Arial, Helvetica;">7.5</text></g><g class="tick" opacity="1" transform="translate(0,0.5)"><line stroke="#000" x2="-6" style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: crispedges;"></line><text fill="#000" x="-9" dy="0.32em" style="font-size: 10px; font-family: Arial, Helvetica;">8.0</text></g><text text-anchor="middle" y="-9" style="font-size: 10px; font-family: Arial, Helvetica;">outsideFire</text></g></g><g class="dim" transform="translate(586.6666666666666)"><g class="axis" fill="none" font-size="10" font-family="sans-serif" text-anchor="end"><path class="domain" stroke="#000" d="M-6,460.5H0.5V0.5H-6" style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: crispedges;"></path><g class="tick" opacity="1" transform="translate(0,460.5)"><line stroke="#000" x2="-6" style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: crispedges;"></line><text fill="#000" x="-9" dy="0.32em" style="font-size: 10px; font-family: Arial, Helvetica;">3.0</text></g><g class="tick" opacity="1" transform="translate(0,414.5)"><line stroke="#000" x2="-6" style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: crispedges;"></line><text fill="#000" x="-9" dy="0.32em" style="font-size: 10px; font-family: Arial, Helvetica;">3.5</text></g><g class="tick" opacity="1" transform="translate(0,368.5)"><line stroke="#000" x2="-6" style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: crispedges;"></line><text fill="#000" x="-9" dy="0.32em" style="font-size: 10px; font-family: Arial, Helvetica;">4.0</text></g><g class="tick" opacity="1" transform="translate(0,322.5)"><line stroke="#000" x2="-6" style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: crispedges;"></line><text fill="#000" x="-9" dy="0.32em" style="font-size: 10px; font-family: Arial, Helvetica;">4.5</text></g><g class="tick" opacity="1" transform="translate(0,276.5)"><line stroke="#000" x2="-6" style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: crispedges;"></line><text fill="#000" x="-9" dy="0.32em" style="font-size: 10px; font-family: Arial, Helvetica;">5.0</text></g><g class="tick" opacity="1" transform="translate(0,230.5)"><line stroke="#000" x2="-6" style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: crispedges;"></line><text fill="#000" x="-9" dy="0.32em" style="font-size: 10px; font-family: Arial, Helvetica;">5.5</text></g><g class="tick" opacity="1" transform="translate(0,184.5)"><line stroke="#000" x2="-6" style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: crispedges;"></line><text fill="#000" x="-9" dy="0.32em" style="font-size: 10px; font-family: Arial, Helvetica;">6.0</text></g><g class="tick" opacity="1" transform="translate(0,138.5)"><line stroke="#000" x2="-6" style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: crispedges;"></line><text fill="#000" x="-9" dy="0.32em" style="font-size: 10px; font-family: Arial, Helvetica;">6.5</text></g><g class="tick" opacity="1" transform="translate(0,92.5)"><line stroke="#000" x2="-6" style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: crispedges;"></line><text fill="#000" x="-9" dy="0.32em" style="font-size: 10px; font-family: Arial, Helvetica;">7.0</text></g><g class="tick" opacity="1" transform="translate(0,46.5)"><line stroke="#000" x2="-6" style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: crispedges;"></line><text fill="#000" x="-9" dy="0.32em" style="font-size: 10px; font-family: Arial, Helvetica;">7.5</text></g><g class="tick" opacity="1" transform="translate(0,0.5)"><line stroke="#000" x2="-6" style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: crispedges;"></line><text fill="#000" x="-9" dy="0.32em" style="font-size: 10px; font-family: Arial, Helvetica;">8.0</text></g><text text-anchor="middle" y="-9" style="font-size: 10px; font-family: Arial, Helvetica;">structFire</text></g></g><g class="dim" transform="translate(733.3333333333333)"><g class="axis" fill="none" font-size="10" font-family="sans-serif" text-anchor="end"><path class="domain" stroke="#000" d="M-6,460.5H0.5V0.5H-6" style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: crispedges;"></path><g class="tick" opacity="1" transform="translate(0,460.5)"><line stroke="#000" x2="-6" style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: crispedges;"></line><text fill="#000" x="-9" dy="0.32em" style="font-size: 10px; font-family: Arial, Helvetica;">3.0</text></g><g class="tick" opacity="1" transform="translate(0,414.5)"><line stroke="#000" x2="-6" style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: crispedges;"></line><text fill="#000" x="-9" dy="0.32em" style="font-size: 10px; font-family: Arial, Helvetica;">3.5</text></g><g class="tick" opacity="1" transform="translate(0,368.5)"><line stroke="#000" x2="-6" style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: crispedges;"></line><text fill="#000" x="-9" dy="0.32em" style="font-size: 10px; font-family: Arial, Helvetica;">4.0</text></g><g class="tick" opacity="1" transform="translate(0,322.5)"><line stroke="#000" x2="-6" style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: crispedges;"></line><text fill="#000" x="-9" dy="0.32em" style="font-size: 10px; font-family: Arial, Helvetica;">4.5</text></g><g class="tick" opacity="1" transform="translate(0,276.5)"><line stroke="#000" x2="-6" style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: crispedges;"></line><text fill="#000" x="-9" dy="0.32em" style="font-size: 10px; font-family: Arial, Helvetica;">5.0</text></g><g class="tick" opacity="1" transform="translate(0,230.5)"><line stroke="#000" x2="-6" style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: crispedges;"></line><text fill="#000" x="-9" dy="0.32em" style="font-size: 10px; font-family: Arial, Helvetica;">5.5</text></g><g class="tick" opacity="1" transform="translate(0,184.5)"><line stroke="#000" x2="-6" style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: crispedges;"></line><text fill="#000" x="-9" dy="0.32em" style="font-size: 10px; font-family: Arial, Helvetica;">6.0</text></g><g class="tick" opacity="1" transform="translate(0,138.5)"><line stroke="#000" x2="-6" style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: crispedges;"></line><text fill="#000" x="-9" dy="0.32em" style="font-size: 10px; font-family: Arial, Helvetica;">6.5</text></g><g class="tick" opacity="1" transform="translate(0,92.5)"><line stroke="#000" x2="-6" style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: crispedges;"></line><text fill="#000" x="-9" dy="0.32em" style="font-size: 10px; font-family: Arial, Helvetica;">7.0</text></g><g class="tick" opacity="1" transform="translate(0,46.5)"><line stroke="#000" x2="-6" style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: crispedges;"></line><text fill="#000" x="-9" dy="0.32em" style="font-size: 10px; font-family: Arial, Helvetica;">7.5</text></g><g class="tick" opacity="1" transform="translate(0,0.5)"><line stroke="#000" x2="-6" style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: crispedges;"></line><text fill="#000" x="-9" dy="0.32em" style="font-size: 10px; font-family: Arial, Helvetica;">8.0</text></g><text text-anchor="middle" y="-9" style="font-size: 10px; font-family: Arial, Helvetica;">serviceCalls</text></g></g><g class="dim" transform="translate(880)"><g class="axis" fill="none" font-size="10" font-family="sans-serif" text-anchor="end"><path class="domain" stroke="#000" d="M-6,460.5H0.5V0.5H-6" style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: crispedges;"></path><g class="tick" opacity="1" transform="translate(0,460.5)"><line stroke="#000" x2="-6" style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: crispedges;"></line><text fill="#000" x="-9" dy="0.32em" style="font-size: 10px; font-family: Arial, Helvetica;">3.0</text></g><g class="tick" opacity="1" transform="translate(0,414.5)"><line stroke="#000" x2="-6" style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: crispedges;"></line><text fill="#000" x="-9" dy="0.32em" style="font-size: 10px; font-family: Arial, Helvetica;">3.5</text></g><g class="tick" opacity="1" transform="translate(0,368.5)"><line stroke="#000" x2="-6" style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: crispedges;"></line><text fill="#000" x="-9" dy="0.32em" style="font-size: 10px; font-family: Arial, Helvetica;">4.0</text></g><g class="tick" opacity="1" transform="translate(0,322.5)"><line stroke="#000" x2="-6" style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: crispedges;"></line><text fill="#000" x="-9" dy="0.32em" style="font-size: 10px; font-family: Arial, Helvetica;">4.5</text></g><g class="tick" opacity="1" transform="translate(0,276.5)"><line stroke="#000" x2="-6" style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: crispedges;"></line><text fill="#000" x="-9" dy="0.32em" style="font-size: 10px; font-family: Arial, Helvetica;">5.0</text></g><g class="tick" opacity="1" transform="translate(0,230.5)"><line stroke="#000" x2="-6" style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: crispedges;"></line><text fill="#000" x="-9" dy="0.32em" style="font-size: 10px; font-family: Arial, Helvetica;">5.5</text></g><g class="tick" opacity="1" transform="translate(0,184.5)"><line stroke="#000" x2="-6" style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: crispedges;"></line><text fill="#000" x="-9" dy="0.32em" style="font-size: 10px; font-family: Arial, Helvetica;">6.0</text></g><g class="tick" opacity="1" transform="translate(0,138.5)"><line stroke="#000" x2="-6" style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: crispedges;"></line><text fill="#000" x="-9" dy="0.32em" style="font-size: 10px; font-family: Arial, Helvetica;">6.5</text></g><g class="tick" opacity="1" transform="translate(0,92.5)"><line stroke="#000" x2="-6" style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: crispedges;"></line><text fill="#000" x="-9" dy="0.32em" style="font-size: 10px; font-family: Arial, Helvetica;">7.0</text></g><g class="tick" opacity="1" transform="translate(0,46.5)"><line stroke="#000" x2="-6" style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: crispedges;"></line><text fill="#000" x="-9" dy="0.32em" style="font-size: 10px; font-family: Arial, Helvetica;">7.5</text></g><g class="tick" opacity="1" transform="translate(0,0.5)"><line stroke="#000" x2="-6" style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: crispedges;"></line><text fill="#000" x="-9" dy="0.32em" style="font-size: 10px; font-family: Arial, Helvetica;">8.0</text></g><text text-anchor="middle" y="-9" style="font-size: 10px; font-family: Arial, Helvetica;">medical</text></g></g></g></g></svg>
+
+<br/>
+<svg id="heatmapNed"></svg>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="ned.js"></script>
+
+
+
+
+<p>Data source: <a href="https://data.sfgov.org/Public-Safety/Fire-Department-Calls-for-Service/nuek-vuh3/data">Data SF</a>, Author: Nedim Azar</p>
+
+<h2>Planned Interactivity</h2>
+<p>The interactivity I plan to implement in the final version of this visualization is that when you brush over a line with a mouse, it will grey out all the other ones and bring the selected line to the top so it can be better observed.</p>
+
+
+<h2>The Bigger Picture</h2>
+<p>This visualization supports the group theme by showing the variance in response times in the picked span of time. Turns out, the SFFD is pretty good at keeping response times consistent.</p>
+</section>
+
+  <!-- Page footer -->
+  <!-- https://bulma.io/documentation/layout/footer/ -->
+  <footer class="footer">
+    <div class="content has-text-centered is-size-7">
+      <p>
+        <a href="#top">
+          <span class="fas fa-arrow-up"></span>
+          <span class="has-text-weight-medium">Back to Top</span>
+        </a>
+      </p>
+
+      <p>
+        <!-- TODO: Change to link to your Github repository -->
+        <a href="https://github.com/usf-cs360-spring2020/template-bulma" class="button is-small" style="padding-left: 1em; padding-right: 1em;">
+          <i class="fab fa-github-alt"></i>&nbsp;<strong>Github</strong>
+        </a>
+
+        <a href="https://fontawesome.com/" class="button is-small" style="padding-left: 1em; padding-right: 1em;">
+          <i class="fab fa-font-awesome"></i>&nbsp;<strong>FontAwesome</strong>
+        </a>
+
+        <a href="https://bulma.io" class="button is-small">
+          <img src="https://bulma.io/images/made-with-bulma--semiblack.png" alt="Made with Bulma" width="128" height="24">
+        </a>
+      </p>
+    </div>
+  </footer>
+  <!-- End page footer -->
+
+  <!-- Mobile menu responsiveness -->
+  <!-- https://bulma.io/documentation/components/navbar/ -->
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+    if ($navbarBurgers.length > 0) {
+      $navbarBurgers.forEach( el => {
+        el.addEventListener('click', () => {
+          const target = el.dataset.target;
+          const $target = document.getElementById(target);
+          el.classList.toggle('is-active');
+          $target.classList.toggle('is-active');
+        });
+      });
+    }
+  });
+  </script>
+  <!-- End mobile menu responsiveness -->
+  </body>
+
+</html>
