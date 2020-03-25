@@ -130,7 +130,8 @@
   <h3>Change in average response times of the SFFD for various call types, 2015-2019.</h3>
   <p>Alarms, Electrical Hazard, Gas Leaks, Outside Fires, Structural Fires, Service Calls, Medical (GOING TO NEED HELP ALLIGNING THESE)</p>
 
-  <div id="heatmap"></div>
+  <!-- <div class="heatmap"></div> -->
+  <svg id="map"></svg>
   </div>
   <script>
 
@@ -144,29 +145,22 @@
 
   var formatDate = d3.timeFormat("%Y-%m-%d");
 
-  d3.csv('Fire-dictionary_files/heatmapData.csv', function ( response ) {
+    let data = d3.csv('Fire-dictionary_files/heatmapData.csv', convertRow);
+    data.then(draw);
 
-    var data = d3.map(function( item ) { // create new array, don't mutate
+    // function to convert each row
+    // https://github.com/d3/d3-fetch/blob/master/README.md#csv
+    function convertRow(item) {
       if(item){
-
         var newItem = {};
         newItem.neighborhood = item.Neighborhood;
         newItem.hour = item.Hour;
         newItem.value = item.Value;
 
+        console.log(newItem.neighborhood);
         return newItem;
       }
-
-    })
-
-
-    // let axis = {};  // axes for data
-    // axis.x = d3.axisTop(scale.x);
-    // axis.x.tickPadding(0);
-    //
-    // axis.y = d3.axisLeft(scale.y);
-    // axis.y.tickPadding(0);
-
+    }
 
     var x_elements = d3.set(d3.map(function( item ) { return item.hour; } )).values(),
         y_elements = d3.set(d3.map(function( item ) { return item.neighborhood; } )).values();
@@ -194,27 +188,14 @@
       //  colorScale = d3.scale.ordinal(d3.interpolateGnBu);
         colorScale.domain([7.15, 22.63]);
 
-    // var colorScale = d3.scale.linear()
-    //     .domain([7.15, 22.63])
-    //     .range(["#fff", "#00a6ca","#00ccbc","#90eb9d","#ffff8c",
-    //         "#f9d057","#f29e2e","#e76818","#2A5783"]);
-
-    var svg = d3.select('#heatmap')
-        .append("svg")
+function draw(){
+    var svg = d3.select('body')
+        .select('svg')
+        // .append("svg")
         .attr("width", width + margin.left + margin.right + 40)
         .attr("height", height + margin.top + margin.bottom)
         .append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-
-        // var tip = d3.tip()
-        // .attr('class', 'd3-tip')
-        // .offset([-10, 0])
-        // .html(function (d) {
-        //   console.log(d);
-        //   return `<div class="box"><p><span class="has-text-black-bis">Neighborhood:</span> ${d.neighborhood}</p><p><span class="has-text-black-bis">Value:</span> ${d.value}</p><p><span class="has-text-black-bis">Hour:</span> ${d.hour}</p></div>`
-        // })
-        // svg.call(tip);
 
     var cells = svg.selectAll('rect')
         .data(data)
@@ -243,8 +224,8 @@
         .attr("dx", ".5em")
         .attr("dy", ".5em");
 
+}
 
-  });
 
   </script>
 
