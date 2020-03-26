@@ -201,9 +201,7 @@
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
           var cells = d3.selectAll('rect')
-            .data(data, function(d) {
-              return d.value
-            })
+            .data(data)
             .enter().append('g').append('rect')
             .attr('class', 'cell')
             .attr('width', cellSize + 40)
@@ -227,14 +225,13 @@
             .attr('font-weight', 'normal');
 
           svg.append("g")
-            .attr("class", "x axis")
+            `.attr("class", "x axis")
             .call(xAxis)
             .selectAll('text')
             .attr('font-weight', 'normal')
             .style("text-anchor", "middle")
             .attr("dx", ".5em")
-            .attr("dy", ".5em");
-
+            .attr("dy", ".5em");`
         }
 
       </script>
