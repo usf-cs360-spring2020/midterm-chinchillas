@@ -133,12 +133,12 @@ stroke:#000
 
   <div class="heatmap"></div>
   </div>
-  <script>  
- 
+  <script>
+
   var itemSize = 20;
   var cellSize = itemSize - 1;
   var margin = {top: 50, right: 100, bottom: 100, left: 150};
-      
+
   var width = 960;
   var height = 500;
 
@@ -179,10 +179,8 @@ stroke:#000
             return d;
         });
 
-    var colorScale = d3.scaleLinear()
-        .domain([7.15, 22.63])
-        .range(["#fff", "#00a6ca","#00ccbc","#90eb9d","#ffff8c",
-            "#f9d057","#f29e2e","#e76818","#2A5783"]);
+
+     var colorScale = d3.scaleSequential(d3.interpolateGnBu).domain([7.15, 22.63]);
 
     var svg = d3.select('.heatmap')
         .append("svg")
@@ -204,12 +202,12 @@ stroke:#000
     svg.append("g")
         .attr("class", "y axis")
         .call(yAxis);
-        
+
 
     svg.append("g")
         .attr("class", "x axis")
         .call(xAxis);
-       
+
   });
 
   </script>
