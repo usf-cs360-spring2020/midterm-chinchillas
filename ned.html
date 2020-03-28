@@ -14,6 +14,8 @@
     <!-- load D3 minified  -->
     <script src="//d3js.org/d3.v5.min.js"></script>
     <script src="https://d3js.org/d3-axis.v1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.js"></script>
+
 
     <!-- Load Font Awesome 5 (free) icons -->
     <script defer src="https://use.fontawesome.com/releases/v5.10.2/js/all.js"></script>
@@ -125,18 +127,23 @@ stroke:#000
   <h1>Ned</h1>
 
   <h2>Personal Wrangling</h2>
-  <p>To create this prototype, I used Excel (Numbers on Mac) to calculate an average for each call rype for each year. I then exported that csv to use it in RAWGraphics. There might have been minimal manual alterations to the csv :)</p>
+  <p>To create this visualization, I reduced the data using Tableau after prototyping and reformatted it using a Python script that I wrote to meake the JS code more readable.</p>
 
-  <h2>Prototype in RAWGraphics</h2>
-  <h3>Change in average response times of the SFFD for various call types, 2015-2019.</h3>
-  <p>Alarms, Electrical Hazard, Gas Leaks, Outside Fires, Structural Fires, Service Calls, Medical (GOING TO NEED HELP ALLIGNING THESE)</p>
+  <h2>Tableau Prototype</h2>
+<img src="nedPrototype.png" alt="">
 
-  <div class="heatmap"></div>
-  </div>
+<h2>D3 Implementation</h2>
+<p>The interactivity I plan to implement in the final version of this visualization is that when you brush over a line with a mouse, it will grey out all the other ones and bring the selected line to the top so it can be better observed.</p>
+
+<div class="heatmap">
+
+</div>
+
   <script>
 
   var itemSize = 20;
   var cellSize = itemSize - 1;
+  var cellSize2 = cellSize * (960/500) / 2;
   var margin = {top: 50, right: 100, bottom: 100, left: 150};
 
   var width = 960;
@@ -156,12 +163,13 @@ stroke:#000
       }
     })
 
+
     var x_elements = d3.set(data.map(function( item ) { return item.hour; } )).values();
     var y_elements = d3.set(data.map(function( item ) { return item.neighborhood; } )).values();
 
     var xScale = d3.scaleBand()
         .domain(x_elements)
-        .range([0, x_elements.length * (itemSize + 25)]);
+        .range([0, x_elements.length * (itemSize )]);
 
     var xAxis = d3.axisBottom()
           .scale(xScale)
@@ -171,7 +179,7 @@ stroke:#000
 
     var yScale = d3.scaleBand()
         .domain(y_elements)
-        .range([0, y_elements.length * itemSize]);
+        .range([0, y_elements.length *10]);
 
     var yAxis = d3.axisLeft()
         .scale(yScale)
@@ -192,7 +200,7 @@ stroke:#000
         .data(data)
         .enter().append('g').append('rect')
         .attr('class', 'cell')
-        .attr('width', cellSize )
+        .attr('width', cellSize2)
         .attr('height', cellSize)
         .attr('y', function(d) { return yScale(d.neighborhood); })
         .attr('x', function(d) { return xScale(d.hour); })
@@ -207,18 +215,53 @@ stroke:#000
         .attr("class", "x axis")
         .call(xAxis);
 
+        svg.append("g")
+        .attr("class", "legendLinear")
+        .attr("transform", "translate(600,30)")
+
+      var legendLinear = d3.legendColor()
+        .shapeWidth(3)
+        .cells(50)
+        .shapePadding(0)
+        .orient('horizontal')
+        .scale(colorScale)
+
+        // .title("Avg. Minutes");
+
+      svg.select(".legendLinear")
+        .call(legendLinear);
+        svg.append("text").attr("id","legendtitle")
+         .attr("x", 640)
+         .attr("y",20)
+         .style("text-anchor", "middle")
+         .style("font-weight", 600)
+         .style("font-size", "14px")
+         .text("Avg. Response Time (minutes)");
+         svg.append("text").attr("id","legendMinScale")
+          .attr("x", 563)
+          .attr("y",41)
+          .style("text-anchor", "left")
+          .style("font-weight", 500)
+          .style("font-size", "12px")
+          .text("7.15");
+          svg.append("text").attr("id","legendMaxScale")
+           .attr("x", 755)
+           .attr("y",41)
+           .style("text-anchor", "left")
+           .style("font-weight", 500)
+           .style("font-size", "12px")
+           .text("22.63");
+
   });
 
   </script>
 
 <p>Data source: <a href="https://data.sfgov.org/Public-Safety/Fire-Department-Calls-for-Service/nuek-vuh3/data">Data SF</a>, Author: Nedim Azar</p>
 
-<h2>Planned Interactivity</h2>
-<p>The interactivity I plan to implement in the final version of this visualization is that when you brush over a line with a mouse, it will grey out all the other ones and bring the selected line to the top so it can be better observed.</p>
 
 
 <h2>The Bigger Picture</h2>
-<p>This visualization supports the group theme by showing the variance in response times in the picked span of time. Turns out, the SFFD is pretty good at keeping response times consistent.</p>
+<p>This visualization supports the group theme by showing the variance in average response times throughout the day in the 5 year period.</p>
 </section>
 
   <!-- Page footer -->
